@@ -1,139 +1,389 @@
 <!DOCTYPE html>
+<html>
 
-<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Backbone Test</title>
+<!--SCRIPTS HERE-->
 
-	<style>
-		div.panel {
-			width: 800px;
-			border: 2px solid #999;
-			padding: 20px;
-			margin: 50px;
-		}
-		
-		fieldset {
-			border: 1px solid #ccc;
-			margin: 20px;
-		}
-	
-		#Search {
-			display: none;
-		}
-		
-		#Search .results-wrap {
-			height: 100px;
-			overflow-y: scroll;
-		}
-		
-		table, tr {
-			border-collapse: collapse;
-			border-top: 1px solid #000;
-			border-bottom: 1px solid #000;
-		}
-		tr {
-		}
-		td, th {
-			padding: 3px 10px;
-			border: none;
-			border-collapse: collapse;
-			cursor: pointer;
-			-moz-user-select: none;
-			-khtml-user-select: none;
-			user-select: none;
-		}
-		.unselectable {
-		   
-		}
-		
-	
-	</style>
-	
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<link href="css/text.css" rel="stylesheet" type="text/css">
+
+<!--[if IE]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+     
 </head>
 <body>
-	<div id="Header">NutPercentile</div>
-	<br/>
-	<br/>
-		
-	<div id="MainApp">
-		
-		<div id="Header"></div>
-		
-		<div id="MainMenu" class="panel">
-			<h3>Main Menu</h3>
-			<a class="add-person" href="#">Add Person</a>
-			<a class="search" href="#">Search</a>
-		</div>
-		
-		<div id="Search" class="panel">
-			<h3>Search</h3>
-			Person ID or Last Name: <input type="text" class="search-field" /> <a href="#" class="search" />Find</a>
-			<div class='results-wrap'>
-				<table class="results">
-					<tr><th>Person ID</th><th>First Name</th><th>LastName</th><th>Birthdate</th></tr>
-				</table>
-			</div>
-		</div>
-		<div id="Person" class="panel">
-			<h3>Person</h3>
-			<fieldset id="PersonInfo">
-				<div><label>Person ID</label><input type="text" id="p_id" /></div>
-				<div><label>First Name</label><input type="text" id="p_fn" /></div>
-				<div><label>Last Name</label><input type="text" id="p_ln" /></div>
-				<div><label>Date of Birth</label><input type="text" id="p_dob" /></div>
-			</fieldset>
-				
-			<fieldset id="Measurements">
-				<legend>Measurements</legend>
-				<div><label>Date</label><input type="date" id="m_date" /></div>
-				<div><label>Age</label><input type="number" id="m_age" /></div>
-				<div><label>Weight</label><input type="number" id="m_weight" /></div>
-				<div><label>Height</label><input type="number" id="m_height" /></div>
-				<div><label>Notes</label><input type="text" id="m_notes" /></div>
-				<div><label>Head</label><input type="number" id="m_head" /></div>
-				<div><label>Arm (MUAC)</label><input type="number" id="m_muac" /></div>
-			</fieldset>
-			
-			<div id="Graph">
-			
-			</div>
-			
-			<div id="History">
-			
-			</div>
-		</div>
-		
-		<!-- <div id="AddPerson">
-			<div><label>First Name</label><input id="FirstName" type="text" placeholder="First Name" /></div>
-			<div><label>Last Name</label><input id="LastName" type="text" placeholder="Last Name" /></div>
-			<div><label>Birthdate</label><input id="Birthdate" type="date" /></div>
-		</div> -->
-		
-		<!-- <table id="PeopleList">
-			<tr><th>Person ID</th><th>First Name</th><th>LastName</th><th>Birthdate</th></tr>
-		</table> -->
-	</div>
-	
-	<script type="text/html" id="person-row-template">
-		<td class="p_id"><%= id %></td>
-		<td class="p_fn"><%= p_fn %></td>
-		<td class="p_ln"><%= p_ln %></td>
-		<td class="p_dob"><%= p_dob %></td>
-	</script>
-	<script type="text/javascript" src="js/lib/jquery-1.5.2.min.js"></script>
-    <script type="text/javascript" src="js/lib/underscore.js"></script>
-    <script type="text/javascript" src="js/lib/backbone.js"></script>
-    <script type="text/javascript" src="js/lib/backbone-localstorage.js"></script>
 
-	<script type="text/javascript" src="js/Setup.js"></script>
-  	<script type="text/javascript" src="js/models/Person.js"></script>
-  	<script type="text/javascript" src="js/models/PersonCollection.js"></script>
-	<script type="text/javascript" src="js/views/TableRowView.js"></script>
-	<script type="text/javascript" src="js/views/MainMenuView.js"></script>
-	<script type="text/javascript" src="js/views/SearchView.js"></script>
-	<script type="text/javascript" src="js/views/PersonView.js"></script>
-  	<script type="text/javascript" src="js/views/MainAppView.js"></script>
-	<script type="text/javascript" src="js/Main.js"></script>
+
+<div id="container">
+
+<!--===================================================================================================-->
+<!--=======================================  HEADER  ==================================================-->
+
+	<div id="header">
+		<h1 class="facility">My Clinic Name</h1>
+		
+        <div id="grad_button">
+        	<div id="grad_left"></div>
+            <div id="grad_mid">
+            	<a href="#">SETTINGS</a>
+            </div>
+            <div id="grad_right"></div>
+        </div>
+		
+        <div id="grad_button">
+        	<div id="grad_left"></div>
+            <div id="grad_mid">
+            	<a href="#">HELP</a>
+            </div>
+            <div id="grad_right"></div>
+        </div>
+		
+        <br /><br />
+		<div id="divider_horz"></div>
+	</div><!--END HEADER-->
+
+<!--===================================================================================================-->
+<!--=======================================  SETTINGS =================================================-->
+
+	<div id="settings">
+    
+    	<h1 class="title">Settings</h1>
+        
+        <div id="divider_horz_boxed"></div>
+        
+        <div id="col_left">
+        
+        	<div id="facility">
+            	<label for="facility">Name Of Facility Or Study</label>
+                <input class="blue" type="text" name="facility" id="facility">
+            </div><!--FACILITY-->
+            
+            <div id="language">
+            	<label for="language">Language</label>
+                <select name="language">
+					<option value="l1" selected="selected">English</option>
+					<option value="l2">German</option>
+					<option value="l3">Spanish</option>
+					<option value="l4">French</option>
+				</select>
+            </div><!--END LANGUAGE-->
+            
+            <div id="sm_weight"><!--SM means "Settings Measurement"-->
+            	<label for="sm_weight">Measurement Units For Weight</label>
+          		<input id="sm_weight_k" name="sm_weight" type="radio" value="Kilograms"> <h4 class="sm_weight_k">Kilograms</h4>
+                <input id="sm_weight_p" name="sm_weight" type="radio" value="Pounds"> <h4 class="sm_weight_p">Pounds</h4>							
+            </div><!--END SETTINGS MEASUREMENT WEIGHT-->
+
+            <div id="sm_units">
+            	<label for="sm_units">Linear Measurement Units</label>
+                <input id="sm_units_c" name="sm_units" type="radio" value="Centimeters"> <h4 class="sm_units_c">Centimeters</h4>
+                <input id="sm_units_i" name="sm_units" type="radio" value="Inches"> <h4 class="sm_units_i">Inches</h4>
+            </div>
+        
+        </div><!--END LEFT COLUMN-->
+    
+    	<div id="col_right">
+        
+        	<div id="reference">
+            	<label for="reference">Reference Data From</label>
+                <select name="reference">
+                	<option value="cdc2000" selected="selected">Centers for Disease Control (CDC 2000)</option>
+                    <option value="un2010">United Nations Child Growth Standards (UN 2010)</option>
+                    <option value="un_cdc">UN2010 before age 2 years; CDC Age 2-18 (Reccomended)</option>
+                </select>
+            </div><!--END REFERENCE-->
+            
+            <div id="hide">
+            	<label for="hide">Hide</label>
+                <input type="checkbox" name="hide" value="Head Circumference" /> <h4 class="hide">Head Circumference</h4>
+				<input type="checkbox" name="hide" value="Arm Circumference" /> <h4 class="hide">Arm Circumference</h4>
+            </div><!--END HIDE-->
+            
+            <div id="r_display">
+            	<label for="r_display">Results Display</label>
+                <input type="checkbox" name="r_display" id="r_display_std"> <h4 class="hide">Standard Growth Chart</h4>
+                <input type="checkbox" name="r_display" id="r_display_z"> <h4 class="hide">Z-Score Growth Chart</h4>
+                <input type="checkbox" name="r_display" id="r_display_stat"> <h4 class="hide">Statistics</h4>
+            </div><!--END RESULTS DISPLAY-->
+            
+            <div id="s_display">
+            	<label for="s_display">Screen Display</label>
+                <input id="s_display_st" name="display" type="radio" value="Standard"> <h4 class="display">Standard</h4>
+                <input id="s_display_sm" name="display" type="radio" value="Small"> <h4 class="display"> Small</h4>
+            </div><!--END SCREEN DISPLAY-->
+        
+        
+        	<div id="settings_buttons">
+            
+            	<div id="settings_buttons_left"></div>
+                <div id="settings_buttons_mid">
+                	<a href="#">SAVE</a>
+                </div><!--END SAVE BUTTON MID-->
+                <div id="settings_buttons_right"></div>
+        		
+                <div id="settings_buttons_left"></div>
+                <div id="settings_buttons_mid">
+                	<a href="#">DEFAULTS</a>
+                </div><!--END DEFAULTS BUTTON MID-->
+                <div id="settings_buttons_right"></div>
+        
+            </div><!--END SETTINGS BUTTONS-->
+
+        </div><!--END RIGHT COLUMN-->
+        
+    </div><!--END SETTINGS-->
+
+<!--===================================================================================================-->
+<!--=======================================  SEARCH  ==================================================-->
+
+	<div id="search">
+    
+    	<h1 class="title">Search</h1>
+        
+        <div id="divider_horz_boxed"></div>
+        
+        <label for="search">PERSON ID OR LAST NAME:</label>
+        <input class="blue" type="text" name="search" id="search">
+        <input type="submit" name="submit" value="FIND" class="submit">
+        
+        <table class="search" width="100%" border="1" cellpadding="0" cellspacing="0">
+			<tr>
+  				<th class="left" width="150px">ID</td>
+  				<th width="150px">Last Name</td>
+  				<th width="150px">First Name</td>
+  				<th>Other</td>
+			</tr>
+			<tr>
+  				<td class="info_top_left" width="150px">333333</td>
+  				<td class="info_top" width="150px">Doe</td>
+  				<td class="info_top" width="150px">John</td>
+  				<td class="info_top">Other</td>
+			</tr>
+			<tr>
+  				<td class="info_left" width="150px">333333</td>
+  				<td class="info" width="150px">Doe</td>
+  				<td class="info" width="150px">John</td>
+  				<td class="info">Other</td>
+			</tr>
+			<tr>
+  				<td class="info_left" width="150px">333333</td>
+  				<td class="info" width="150px">Doe</td>
+  				<td class="info" width="150px">John</td>
+  				<td class="info">Other</td>
+			</tr>
+			<tr>
+  				<td class="info_left" width="150px">333333</td>
+  				<td class="info" width="150px">Doe</td>
+  				<td class="info" width="150px">John</td>
+  				<td class="info">Other</td>
+			</tr>
+		</table>
+    
+    </div><!--END SEARCH-->
+
+<!--===================================================================================================-->
+<!--=======================================  PERSON  ==================================================-->
+
+	<div id="person">
+    
+    	<h1 class="title">Person Name, ####</h1>
+        
+        <div id="divider_horz_boxed"></div>
+        
+        <!--===========================================================================================-->
+        <!--=====================================  PERSON INFORMATION =================================-->
+        
+        <div id="info">
+        
+        	<h3>PERSON INFORMATION</h3>
+            
+            <div id="row_1">
+            
+            	<div id="p_id">
+            		<label for="p_id">Person ID</label>
+            		<input class="blue" type="text" name="p_id" id="p_id">
+        		</div><!--END PERSON ID-->
+                
+                <div id="p_mf">
+                	<h4 class="mf">Male</h4> <input id="sex" name="sex" type="radio" value="Male">
+                    <h4 class="mf">Female</h4> <input id="sex" name="sex" type="radio" value="Female">
+                </div>
+                
+            	<div id="p_fn">
+                	<label for="p_fn">First Name</label>
+                    <input class="blue" type="text" name="p_fn" id="p_fn">
+                </div><!--END PERSON FIRST NAME-->
+                
+                <div id="p_ln">
+                	<label for="p_ln">Last Name</label>
+                    <input class="blue" type="text" name="p_ln" id="p_ln">
+                </div><!--END PERSON LAST NAME-->
+                
+                <div id="p_dob">
+                	<label for="p_dob">Date Of Birth</label>
+                    <input class="blue" type="text" name="p_dob" id="p_dob">
+                </div><!--END PERSON DATE OF BIRTH-->
+            
+            </div><!--END ROW 1-->
+            
+        </div><!--END PERSON INFO-->
+
+        <!--===========================================================================================-->
+        <!--=================================  PERSON MEASUREMENTS ====================================-->
+
+        <div id="measurements">
+        
+        	<h3>MEASUREMENTS</h3>
+        
+        	<h3><a href="#">New Measurement</a></h3>
+            
+        	<div id="divider_horz_measurements"></div>
+        	
+            <!--========================= LEFT COLUMN ========================-->
+        	<div id="col_left">
+            
+            	<div id="row_1">
+            
+            		<div id="m_date">	
+                		<label for="m_date">Date</label>
+                    	<a href="#" class="left"><</a>
+                        <input class="blue" type="text" name="m_date" id="m_date">
+                        <a href="#" class="right">></a>
+                	</div><!--END MEASUREMENT DATE-->
+            
+            	</div><!--END ROW 1-->
+                
+                <div id="row_2">
+                
+                	<div id="m_age">
+                    	<label for="m_age">Age</label>
+                        <input class="orange" type="text" name="m_age" id="m_age" maxlength="3">
+                        <input class="orange" type="text" name="m_age2" id="m_age2" maxlength="2">
+                    </div><!--END MEASUREMENT AGE-->
+                    
+                    <div id="m_weight">
+                    	<label for="m_weight">Weight</label>
+                        <input class="orange" type="text" name="m_weight" id="m_weight" maxlength="5">
+                        <input class="orange" type="text" name="m_weight2" id="m_weight2" maxlength="5">
+                    </div><!--END MEASUREMENT WEIGHT-->
+                    
+                    <div id="m_height">
+                    	<label for="m_height">Height</label>
+                        <input class="orange" type="text" name="m_height" id="m_height" maxlength="5">
+                    </div><!--END MEASUREMENT HEIGHT-->
+                
+                </div><!--END ROW 2-->
+                
+                <div id="row_3">
+                	
+                    <div id="m_notes">
+                    	<label for="m_notes">Notes</label>
+                        <textarea class="blue" rows="10" cols="40" name="m_notes" id="m_notes"></textarea>
+                    </div><!--END MEASUREMENT NOTES-->
+                
+                </div><!--END ROW 3-->
+                
+                <div id="row_4">
+                
+                	<div id="m_head">
+                    	<label for="m_head">Head</label>
+                        <input class="orange" type="text" name="m_head" id="m_head" maxlength="8">
+                    </div><!--END MEASUREMENT HEAD-->
+                    
+                    <div id="m_arm">
+                    	<label for="m_arm">Arm (MUAC)</label>
+                        <input class="orange" type="text" name="m_arm" id="m_arm" maxlength="8">
+                    </div><!--END MEASUREMENT ARM-->
+                
+                </div><!--END ROW 4-->
+            
+           	</div><!--END LEFT COLUMN-->
+            
+            <div id="divider_vert"></div>
+            
+            <!--=========================  RIGHT COLUMN  ==========================-->
+            <div id="col_right">
+            
+            	<h3 class="stats">STATS: <em>Source Here</em></h3>
+            
+            	<div id="row_1">
+            		<h4 class="percentile">Percentile</h4>
+                    <h4 class="z_score">Z-Score</h4>
+                    <h4 class="flag_title">Flag</h4>
+            	</div><!--END ROW 1-->
+                
+                <div id="row_2">
+                	<label for="height_age">Height For Age:</label>
+                    <input class="orange" type="text" name="height_age" id="height_age_percentile">
+                    <input class="orange" type="text" name="height_age" id="height_age_z_score">
+                    <h4 class="flag_white">Ok</h4>
+                </div><!--END ROW 2-->
+                
+                <div id="row_3">
+                	<label for="weight_age">Weight For Age:</label>
+                    <input class="orange" type="text" name="weight_age" id="weight_age_percentile">
+                    <input class="orange" type="text" name="weight_age" id="weight_age_z_score">
+                    <h4 class="flag_green">Ok</h4>
+                </div><!--END ROW 3-->
+                
+                <div id="row_4">
+                	<label for="weight_height">Weight For Height:</label>
+                    <input class="orange" type="text" name="weight_height" id="weight_height_percentile">
+                    <input class="orange" type="text" name="weight_height" id="weight_height_z_score">
+                    <h4 class="flag_red">Low</h4>
+                </div><!--END ROW 4-->
+                
+                <div id="row_5">
+                	<label for="bmi">BMI:</label>
+                    <input class="orange" type="text" name="bmi" id="bmi">
+                    <input class="orange" type="text" name="bmi_percentile" id="bmi_percentile">
+                    <input class="orange" type="text" name="bmi_z_score" id="bmi_z_score">
+                    <h4 class="flag_white">Ok</h4>
+                </div><!--END ROW 5-->
+                
+                <div id="row_6">
+                	<label for="head_cir">Head Circum:</label>
+                    <input class="orange" type="text" name="head_cir" id="head_cir_percentile">
+                    <input class="orange" type="text" name="head_cir" id="head_cir_z_score">
+                </div><!--END ROW 6-->
+                
+                <div id="row_7">
+                	<h4 class="z_age">Z For Age<br /><span>(<em>Reference</em>)</span></h4>
+                    <h4 class="z_height">Z For Height<br /><span>(<em>Reference</em>)</span></h4>
+                </div><!--END ROW 7-->
+                
+                <div id="row_8">
+                	<label for="muac">MUAC:</label>
+                    <input class="orange" type="text" name="muac" id="muac_percentile">
+                    <input class="orange" type="text" name="muac" id="muac_z_score">
+                </div><!--END ROW 8-->
+            
+            </div><!--END RIGHT COLUMN-->
+        
+        </div><!--END MEASUREMENTS-->
+    	
+        <!--===========================================================================================-->
+        <!--=====================================  GROWTH CHART =======================================-->
+		
+        <div id="growth_chart">
+        
+        	<h3>GROWTH CHART</h3>
+            
+            <h3><a href="#">HIDE</a></h3>
+            
+            <img src="images/bg_blue.jpg" width="914" height="200" alt="growth_chart">
+        
+        
+        </div><!--END GROWTH CHART-->
+        
+    </div><!--END PERSON-->
+
+
+
+</div><!--END CONTAINER-->
+
+
 </body>
 </html>

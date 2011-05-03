@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Backbone Test</title>
+
+	<style>
+		div.panel {
+			width: 800px;
+			border: 2px solid #999;
+			padding: 20px;
+			margin: 50px;
+		}
+		
+		fieldset {
+			border: 1px solid #ccc;
+			margin: 20px;
+		}
+	
+		#Search {
+			display: none;
+		}
+		
+		#Search .results-wrap {
+			height: 100px;
+			overflow-y: scroll;
+		}
+		
+		table, tr {
+			border-collapse: collapse;
+			border-top: 1px solid #000;
+			border-bottom: 1px solid #000;
+		}
+		tr {
+		}
+		td, th {
+			padding: 3px 10px;
+			border: none;
+			border-collapse: collapse;
+			cursor: pointer;
+			-moz-user-select: none;
+			-khtml-user-select: none;
+			user-select: none;
+		}
+		.unselectable {
+		   
+		}
+		
+	
+	</style>
+	
+</head>
+<body>
+	<div id="Header">NutPercentile</div>
+	<br/>
+	<br/>
+		
+	<div id="MainApp">
+		
+		<div id="Header"></div>
+		
+		<div id="MainMenu" class="panel">
+			<h3>Main Menu</h3>
+			<a class="add-person" href="#">Add Person</a>
+			<a class="search" href="#">Search</a>
+		</div>
+		
+		<div id="Search" class="panel">
+			<h3>Search</h3>
+			Person ID or Last Name: <input type="text" class="search-field" /> <a href="#" class="search" />Find</a>
+			<div class='results-wrap'>
+				<table class="results">
+					<tr><th>Person ID</th><th>First Name</th><th>LastName</th><th>Birthdate</th></tr>
+				</table>
+			</div>
+		</div>
+		<div id="Person" class="panel">
+			<h3>Person</h3>
+			<fieldset id="PersonInfo">
+				<div><label>Person ID</label><input type="text" id="p_id" /></div>
+				<div><label>First Name</label><input type="text" id="p_fn" /></div>
+				<div><label>Last Name</label><input type="text" id="p_ln" /></div>
+				<div><label>Date of Birth</label><input type="text" id="p_dob" /></div>
+			</fieldset>
+				
+			<fieldset id="Measurements">
+				<legend>Measurements</legend>
+				<div><label>Date</label><input type="date" id="m_date" /></div>
+				<div><label>Age</label><input type="number" id="m_age" /></div>
+				<div><label>Weight</label><input type="number" id="m_weight" /></div>
+				<div><label>Height</label><input type="number" id="m_height" /></div>
+				<div><label>Notes</label><input type="text" id="m_notes" /></div>
+				<div><label>Head</label><input type="number" id="m_head" /></div>
+				<div><label>Arm (MUAC)</label><input type="number" id="m_muac" /></div>
+			</fieldset>
+			
+			<div id="Graph">
+			
+			</div>
+			
+			<div id="History">
+			
+			</div>
+		</div>
+		
+		<!-- <div id="AddPerson">
+			<div><label>First Name</label><input id="FirstName" type="text" placeholder="First Name" /></div>
+			<div><label>Last Name</label><input id="LastName" type="text" placeholder="Last Name" /></div>
+			<div><label>Birthdate</label><input id="Birthdate" type="date" /></div>
+		</div> -->
+		
+		<!-- <table id="PeopleList">
+			<tr><th>Person ID</th><th>First Name</th><th>LastName</th><th>Birthdate</th></tr>
+		</table> -->
+	</div>
+	
+	<script type="text/html" id="person-row-template">
+		<td class="p_id"><%= id %></td>
+		<td class="p_fn"><%= p_fn %></td>
+		<td class="p_ln"><%= p_ln %></td>
+		<td class="p_dob"><%= p_dob %></td>
+	</script>
+	<script type="text/javascript" src="js/lib/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="js/lib/underscore.js"></script>
+    <script type="text/javascript" src="js/lib/backbone.js"></script>
+    <script type="text/javascript" src="js/lib/backbone-localstorage.js"></script>
+
+	<script type="text/javascript" src="js/Setup.js"></script>
+  	<script type="text/javascript" src="js/models/Person.js"></script>
+  	<script type="text/javascript" src="js/models/PersonCollection.js"></script>
+	<script type="text/javascript" src="js/views/TableRowView.js"></script>
+	<script type="text/javascript" src="js/views/MainMenuView.js"></script>
+	<script type="text/javascript" src="js/views/SearchView.js"></script>
+	<script type="text/javascript" src="js/views/PersonView.js"></script>
+  	<script type="text/javascript" src="js/views/MainAppView.js"></script>
+	<script type="text/javascript" src="js/Main.js"></script>
+</body>
+</html>

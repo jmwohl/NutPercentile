@@ -1,0 +1,1176 @@
+@charset "utf-8";
+/* NUTSTATS MAIN CSS STYLES */
+
+/*===========================================================================================================================*/
+/*====================================================  GLOBAL STYLES  ======================================================*/
+
+body {
+	background-image: url(../images/bg_blue.jpg);
+	background-repeat: no-repeat;
+	background-color: #0064a9;
+	padding: 30px;
+	font-family: Tahoma, Geneva, sans-serifl;
+	color: #FFF;
+}
+
+#container {
+	width: 960px;
+	float: left;
+}
+
+#header {
+	width: 100%;
+}
+
+#grad_button {
+	float: right;
+	margin-left: 10px;
+	height: 37px;
+	overflow: hidden;
+}
+
+#grad_left {
+	float: left;
+	background-image: url(../images/buttons/grad_button_left.png);
+	background-repeat: no-repeat;
+	width: 3px;
+	height: 37px;
+}
+
+#grad_mid {
+	float: left;
+	background-image: url(../images/buttons/grad_btton_middle.png);
+	background-repeat: repeat-x;
+	overflow: hidden;
+	height: 37px;
+}
+
+#grad_right {
+	background-image: url(../images/buttons/grad_button_right.png);
+	background-repeat: no-repeat;
+	height: 37px;
+	width: 3px;
+	float: left;
+}
+
+#divider_horz {
+	width: 100%;
+	height: 15px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	background-image: url(../images/divider_horz.png);
+	background-repeat: repeat-x;
+	overflow: hidden;
+	display: block;
+}
+
+#divider_horz_boxed {
+	width: 100%;
+	height: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-image: url(../images/divider_horz.png);
+	background-repeat: repeat-x;
+	overflow: hidden;
+	display: block;
+	float: left;
+}
+
+#divider_horz_measurements {
+	width: 100%;
+	height: 15px;
+	margin-top: 4px;
+	margin-bottom: 10px;
+	background-image: url(../images/divider_horz.png);
+	background-repeat: repeat-x;
+	overflow: hidden;
+	display: block;
+	float: left;
+}
+
+#divider_vert {
+	background-image: url(../images/divider_vert.png);
+	background-repeat: repeat-y;
+	width: 9px;
+	height: 400px;
+	float: left;
+}
+
+input.blue {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	color: #000;
+	max-width: 140px;
+	float: left;
+	padding: 3px;
+	background-color: #daedff;
+	background-image: none;
+}
+
+input.blue textarea:focus, input.blue:focus {
+	background-color: #ffefcc;
+}
+
+input.orange {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	color: #000;
+	max-width: 140px;
+	float: left;
+	padding: 3px;
+	background-color: #ffbb4e;
+	background-image: none;
+}
+
+input.orange textarea:focus, input.orange:focus {
+	background-color: #ffdba2;
+}
+
+textarea.blue {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	color: #000;
+	float: left;
+	padding: 3px;
+	background-color: #daedff;
+	background-image: none;
+}
+
+textarea.blue textarea:focus, textarea.blue:focus {
+	background-color: #ffefcc;
+}
+
+/*===========================================================================================================================*/
+/*==================================================  SETTINGS STYLES  ======================================================*/
+
+#settings {
+	width: 938px;
+	border: 1px solid #000;
+	background-image: url(../images/black_transparent.png);
+	background-repeat: repeat;
+	overflow: hidden;
+	padding: 10px;
+	margin-bottom: 15px;
+	float: left;
+}
+
+#settings #col_left {
+	width: 325px;
+	float: left;
+}
+
+#settings #col_right {
+	width: 602px;
+	height: 240px;
+	float: left;
+	margin-left: 10px;
+}
+
+#settings_buttons {
+	float: right;
+	height: 37px;
+	position: relative;
+	top: 41px;
+}
+
+#settings_buttons_left {
+	background-image: url(../images/buttons/grad_button_left.png);
+	width: 3px;
+	height: 37px;
+	float: left;
+	margin-left: 10px;
+}
+
+#settings_buttons_right {
+	background-image: url(../images/buttons/grad_button_right.png);
+	width: 3px;
+	height: 37px;
+	float: left;
+}
+
+#settings_buttons_mid {
+	background-image: url(../images/buttons/grad_button_middle.png);
+	height: 37px;
+	background-repeat: repeat-x;
+	float: left;
+}
+
+/*======================  Facility Name Styles  ========================*/
+
+#facility {
+	float: left;
+/*	border: 1px solid red; */
+}
+
+#facility label {
+	float: left;
+	margin-left: 0px;
+}
+
+#facility input {
+	float: left;
+	clear: both;
+	margin-top: 6px;
+	border: 1px solid black;
+	position: relative;
+	left: -3px;
+	max-width: 400px;
+}
+
+/*======================  Language Styles  ========================*/
+
+#language {
+	float: left;
+	margin-top: 20px;
+/*	border: 1px solid red; */
+	clear: both;
+}
+
+#language label {
+	float: left;
+	margin-left: 0px;
+}
+
+#language select {
+	float: left;
+	clear: both;
+	margin-top: 6px;
+	border: 1px solid black;
+	position: relative;
+	left: -3px;
+	max-width: 400px;
+}
+
+/*======================  Settings: Weight Styles  ========================*/
+
+#sm_weight {
+	float: left;
+	margin-top: 20px;
+/*	border: 1px solid red; */
+	clear: both;
+}
+
+#sm_weight label {
+	float: left;
+	margin-left: 0px;
+}
+
+#sm_weight input#sm_weight_k {
+	float: left;
+	border: 1px solid black;
+	clear: left;
+	margin-top: 10px;
+}
+
+#sm_weight input#sm_weight_p {
+	float: left;
+	border: 1px solid black;
+	clear: right;
+	margin-top: 10px;
+	margin-left: 40px;
+}
+
+/*======================  Settings: Linear Measurement Units  ========================*/
+
+#sm_units {
+	float: left;
+	margin-top: 20px;
+/*	border: 1px solid red; */
+	clear: both;
+}
+
+#sm_units label {
+	float: left;
+	margin-left: 0px;
+}
+
+#sm_units input#sm_units_c {
+	float: left;
+	border: 1px solid black;
+	clear: left;
+	margin-top: 10px;
+}
+
+#sm_units input#sm_units_i {
+	float: left;
+	border: 1px solid black;
+	clear: right;
+	margin-top: 10px;
+	margin-left: 40px;
+}
+
+/*====================== Reference Data From Styles  ========================*/
+
+#reference {
+	float: left;
+/*	border: 1px solid red; */
+}
+
+#reference label {
+	float: left;
+	margin-left: 0px;
+}
+
+#reference select {
+	float: left;
+	clear: both;
+	margin-top: 6px;
+	border: 1px solid black;
+	position: relative;
+	left: -3px;
+}
+
+/*====================== Hide Styles  ========================*/
+
+#hide {
+	float: left;
+/*	border: 1px solid red; */
+	margin-top: 20px;
+	clear: both;
+}
+
+#hide label {
+	float: left;
+	margin-left: 0px;
+}
+
+#hide input {
+	float: left;
+	clear: both;
+	margin-top: 10px;
+	border: 1px solid black;
+	position: relative;
+	left: -4px;
+}
+
+/*======================  Styles  ========================*/
+
+#r_display {
+	float: left;
+/*	border: 1px solid red; */
+	margin-top: 20px;
+	margin-left: 65px;
+}
+
+#r_display label {
+	float: left;
+	margin-left: 0px;
+}
+
+#r_display input {
+	float: left;
+	clear: both;
+	margin-top: 10px;
+	border: 1px solid black;
+	position: relative;
+	left: -4px;
+}
+
+
+/*====================== Screen Display Styles  ========================*/
+
+#s_display {
+	float: left;
+/*	border: 1px solid red; */
+	margin-top: 0px;
+	clear: both;
+}
+
+#s_display label {
+	float: left;
+	margin-left: 0px;
+}
+
+#s_display input {
+	float: left;
+	clear: both;
+	margin-top: 10px;
+	border: 1px solid black;
+	position: relative;
+	left: -4px;
+}
+
+
+/*===========================================================================================================================*/
+/*====================================================  SEARCH STYLES  ======================================================*/
+
+#search {
+	width: 938px;
+	border: 1px solid #000;
+	background-image: url(../images/black_transparent.png);
+	background-repeat: repeat;
+	overflow: hidden;
+	padding: 10px;
+	margin-bottom: 15px;
+	float: left;
+}
+
+#search input {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	color: #000;
+	max-width: 140px;
+	float: left;
+	padding: 3px;
+	background-color: #daedff;
+	background-image: none;
+	position: relative;
+	top: -4px;
+	left: 7px;
+}
+
+#search input.submit {
+	background-color: #222;
+	border: 1px solid black;
+	color: #FFF;
+	font-weight: bold;
+	padding-left: 4px;
+	padding-right: 4px;
+	float: left;
+	margin-left: 5px;
+}
+
+#search input.submit:hover {
+	cursor: pointer;
+	color: #ffefcc;
+}
+
+table.search {
+	border: 1px solid black;
+	background-color: #FFF;
+	float: left;
+}
+
+table.search th {
+	height: 20px;
+	background-color: #e6e6e6;
+	color: #000;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: left;
+	border-left: 1px solid black;
+	border-right: 1px solid white;
+	border-bottom: 1px solid black;
+	padding: 5px;
+}
+
+table.search th.left {
+	background-color: #e6e6e6;
+	color: #000;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: left;
+	border-left: 0px;
+	border-right: 1px solid white;
+	border-bottom: 1px solid black;
+	padding: 5px;
+}
+
+table.search td.info {
+	background-color: white;
+	color: #000;
+	font-size: 14px;
+	text-align: left;
+	padding: 5px;
+	border-left: 1px solid #000;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #000;
+}
+
+table.search td.info_top {
+	background-color: white;
+	color: #000;
+	font-size: 14px;
+	text-align: left;
+	padding: 5px;
+	border-left: 1px solid #000;
+	border-bottom: 1px solid #ccc;
+	border-top: 0px;
+}
+
+table.search td.info_left {
+	background-color: white;
+	color: #000;
+	font-size: 14px;
+	text-align: left;
+	padding: 5px;
+	border-left: 0px;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #000;
+}
+
+table.search td.info_top_left {
+	background-color: white;
+	color: #000;
+	font-size: 14px;
+	text-align: left;
+	padding: 5px;
+	border-left: 0px;
+	border-bottom: 1px solid #ccc;
+	border-top: 0px;
+}
+
+/*===========================================================================================================================*/
+/*====================================================  PERSON STYLES  ======================================================*/
+
+#person {
+	width: 938px;
+	border: 1px solid #000;
+	background-image: url(../images/black_transparent.png);
+	background-repeat: repeat;
+	overflow: hidden;
+	padding: 10px;
+	float: left;
+	margin-bottom: 50px;
+}
+
+#person #info {
+	background-image: url(../images/black_transparent.png);
+	background-repeat: repeat;
+	border: 1px solid black;
+	float: left;
+	width: 916px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+#person #info #row_1 {
+	float: left;
+/*	border: 1px solid red; */
+	clear: both;
+	margin-top: 10px;
+}
+
+/*============================== Person ID ==============================*/
+
+#p_id {
+	float: left;
+	position: relative;
+	left: -1px;
+/*	border: 1px solid #6F3; */
+	width: 175px;
+}
+
+#p_id label {
+	float: left;
+	margin-left: 1px;
+}
+
+#p_id input {
+	float: left;
+	clear: both;
+	margin-top: 5px;
+	border: 1px solid black;
+}
+
+/*=========================== Person Male or Female ===========================*/
+
+#p_mf {
+	float: left;
+	position: relative;
+	left: -1px;
+	top: -12px;
+/*	border: 1px solid #6F3; */
+	margin-left: 10px;
+	width: 150px;
+}
+
+#p_mf input {
+	float: left;
+	clear: both;
+	margin-top: 0px;
+	border: 1px solid black;
+	position: relative;
+	left: -9px;
+}
+
+/*=========================== Person First Name ===========================*/
+
+#p_fn {
+	float: left;
+	position: relative;
+	left: -1px;
+/*	border: 1px solid #6F3; */
+	margin-left: 10px;
+	width: 175px;
+}
+
+#p_fn label {
+	float: left;
+	margin-left: 2px;
+}
+
+#p_fn input {
+	float: left;
+	clear: both;
+	margin-top: 5px;
+	border: 1px solid black;
+	position: relative;
+	left: -9px;
+}
+
+/*=========================== Person Last Name ===========================*/
+
+#p_ln {
+	float: left;
+	position: relative;
+	left: -1px;
+/*	border: 1px solid #6F3; */
+	margin-left: 10px;
+	width: 175px;
+}
+
+#p_ln label {
+	float: left;
+	margin-left: 2px;
+}
+
+#p_ln input {
+	float: left;
+	clear: both;
+	margin-top: 5px;
+	border: 1px solid black;
+	position: relative;
+	left: -9px;
+}
+
+/*=========================== Person Date Of Birth ===========================*/
+
+#p_dob {
+	float: left;
+	position: relative;
+	left: -1px;
+/*	border: 1px solid #6F3; */
+	margin-left: 10px;
+	width: 175px;
+}
+
+#p_dob label {
+	float: left;
+	margin-left: 2px;
+}
+
+#p_dob input {
+	float: left;
+	clear: both;
+	margin-top: 5px;
+	border: 1px solid black;
+	position: relative;
+	left: -9px;
+}
+
+/*===========================================================================*/
+/*======================  MEASUREMENTS STYLES ===============================*/
+
+#person #measurements {
+	background-image: url(../images/black_transparent.png);
+	background-repeat: repeat;
+	border: 1px solid black;
+	float: left;
+	width: 916px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+/*==========================================================================*/
+/*======================= MEASUREMENTS LEFT COLUMN =========================*/
+
+#person #measurements #col_left {
+	width: 400px;
+	float: left;
+}
+
+#person #measurements #col_left #row_1 {
+	float: left;
+/*	border: 1px solid red; */
+	clear: both;
+	margin-top: 0px;
+}
+
+#person #measurements #col_left #row_2 {
+	float: left;
+/*	border: 1px solid red; */
+	clear: both;
+	margin-top: 20px;
+}
+
+#person #measurements #col_left #row_3 {
+	float: left;
+/*	border: 1px solid red; */
+	clear: both;
+	margin-top: 20px;
+}
+
+#person #measurements #col_left #row_4 {
+	float: left;
+/*	border: 1px solid red; */
+	clear: both;
+	margin-top: 20px;
+}
+
+/*===================== MEASUREMENT DATE ================================*/
+
+#m_date {
+	float: left;
+	position: relative;
+	left: -1px;
+	margin-left: 0px;
+	width: 300px;
+}
+
+#m_date label {
+	float: left;
+	margin-left: 2px;
+}
+
+#m_date input {
+	float: left;
+	margin-top: 5px;
+	border: 1px solid black;
+	position: relative;
+	left: 0px;
+}
+
+#m_date a.left {
+	float: left;
+	clear: left;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 18px;
+	text-decoration: none;
+	background-color: #222;
+	border: 1px solid black;
+	margin-top: 5px;
+	margin-right: 3px;
+	padding: 3px;
+	text-shadow: 1px 1px 4px #000;
+}
+
+#m_date a.left:hover {
+	color: #ffefcc;
+}
+
+#m_date a.right {
+	float: left;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 18px;
+	text-decoration: none;
+	background-color: #222;
+	border: 1px solid black;
+	margin-top: 5px;
+	margin-left: 3px;
+	padding: 3px;
+	text-shadow: 1px 1px 4px #000;
+}
+
+#m_date a.right:hover {
+	color: #ffefcc;
+}
+
+/*========================= MEASUREMENT AGE ============================*/
+
+#m_age {
+	float: left;
+	position: relative;
+	left: -1px;
+	margin-left: 0px;
+	width: 100px;
+/*	border: 1px solid white; */
+}
+
+#m_age label {
+	float: left;
+	margin-left: 2px;
+}
+
+#m_age input {
+	float: left;
+	margin-top: 5px;
+	border: 1px solid black;
+	position: relative;
+	left: 0px;
+	clear: both;
+	max-width: 30px;
+}
+
+#m_age input#m_age2 {
+	clear: none;
+	margin-left: 5px;
+}
+
+/*========================= MEASUREMENT WEIGHT ============================*/
+
+#m_weight {
+	float: left;
+	position: relative;
+	left: -1px;
+	margin-left: 10px;
+	width: 140px;
+/*	border: 1px solid white; */
+}
+
+#m_weight label {
+	float: left;
+	margin-left: 2px;
+}
+
+#m_weight input {
+	float: left;
+	margin-top: 5px;
+	border: 1px solid black;
+	position: relative;
+	left: -9px;
+	clear: both;
+	max-width: 50px;
+}
+
+#m_weight input#m_weight2 {
+	clear: none;
+	margin-left: 5px;
+}
+
+/*========================= MEASUREMENT HEIGHT ============================*/
+
+#m_height {
+	float: left;
+	position: relative;
+	left: -1px;
+	margin-left: 10px;
+	width: 100px;
+/*	border: 1px solid white; */
+}
+
+#m_height label {
+	float: left;
+	margin-left: 2px;
+}
+
+#m_height input {
+	float: left;
+	margin-top: 5px;
+	border: 1px solid black;
+	position: relative;
+	left: -9px;
+	clear: both;
+	max-width: 50px;
+}
+
+/*========================= MEASUREMENT NOTES ============================*/
+
+#m_notes {
+	float: left;
+	position: relative;
+	left: -1px;
+	width: 380px;
+/*	border: 1px solid white; */
+}
+
+#m_notes label {
+	float: left;
+	margin-left: 2px;
+}
+
+#m_notes textarea {
+	float: left;
+	margin-top: 5px;
+	border: 1px solid black;
+	position: relative;
+	left: 0px;
+	clear: both;
+}
+
+/*========================= MEASUREMENT HEAD ============================*/
+
+#m_head {
+	float: left;
+	position: relative;
+	left: -1px;
+	margin-left: 0px;
+	width: 100px;
+/*	border: 1px solid white; */
+}
+
+#m_head label {
+	float: left;
+	margin-left: 2px;
+}
+
+#m_head input {
+	float: left;
+	margin-top: 5px;
+	border: 1px solid black;
+	position: relative;
+	clear: both;
+	max-width: 50px;
+}
+
+/*========================= MEASUREMENT ARM ============================*/
+
+#m_arm {
+	float: left;
+	position: relative;
+	left: -1px;
+	margin-left: 10px;
+	width: 150px;
+/*	border: 1px solid white; */
+}
+
+#m_arm label {
+	float: left;
+	margin-left: 2px;
+}
+
+#m_arm input {
+	float: left;
+	margin-top: 5px;
+	border: 1px solid black;
+	position: relative;
+	left: -9px;
+	clear: both;
+	max-width: 50px;
+}
+
+/*===========================================================================*/
+/*======================  MEASUREMENTS RIGHT COLUMN  ========================*/
+
+#person #measurements #col_right {
+	width: 495px;
+	height: 400px;
+	float: left;
+	margin-left: 10px;
+}
+
+#person #measurements #col_right #row_1 {
+	float: left;
+/*	border: 1px solid red; */ 
+	clear: both;
+	margin-top: 15px;
+	position: relative;
+	left: 170px;
+}
+
+#person #measurements #col_right #row_2 {
+	width: 490px;
+	float: left;
+/*	border: 1px solid red; */ 
+	clear: both;
+	margin-top: 10px;
+	position: relative;
+}
+
+#person #measurements #col_right #row_3 {
+	width: 490px;
+	float: left;
+/*	border: 1px solid red; */ 
+	clear: both;
+	margin-top: 10px;
+	position: relative;
+}
+
+#person #measurements #col_right #row_4 {
+	width: 490px;
+	float: left;
+/*	border: 1px solid red; */ 
+	clear: both;
+	margin-top: 10px;
+	position: relative;
+}
+
+#person #measurements #col_right #row_5 {
+	width: 490px;
+	float: left;
+/*	border: 1px solid red; */ 
+	clear: both;
+	margin-top: 20px;
+	position: relative;
+}
+
+#person #measurements #col_right #row_6 {
+	width: 490px;
+	float: left;
+/*	border: 1px solid red; */ 
+	clear: both;
+	margin-top: 10px;
+	position: relative;
+}
+
+#person #measurements #col_right #row_7 {
+	width: 490px;
+	float: left;
+/*	border: 1px solid red; */ 
+	clear: both;
+	margin-top: 20px;
+	position: relative;
+}
+
+#person #measurements #col_right #row_8 {
+	width: 490px;
+	float: left;
+/*	border: 1px solid red; */ 
+	clear: both;
+	margin-top: 10px;
+	position: relative;
+}
+
+/*======================  HEIGHT FOR AGE STYLES  ========================*/
+
+#person #measurements #col_right #row_2 label {
+	position: relative;
+	top: 4px;
+}
+
+#person #measurements #col_right #row_2 input#height_age_percentile {
+	max-width: 90px;
+	border: 1px solid black;
+	margin-left: 36px;
+	text-align: center;
+}
+
+#person #measurements #col_right #row_2 input#height_age_z_score {
+	max-width: 90px;
+	border: 1px solid black;
+	margin-left: 20px;
+	text-align: center;
+}
+
+/*======================  WEIGHT FOR AGE STYLES  ========================*/
+
+#person #measurements #col_right #row_3 label {
+	position: relative;
+	top: 4px;
+}
+
+#person #measurements #col_right #row_3 input#weight_age_percentile {
+	max-width: 90px;
+	border: 1px solid black;
+	margin-left: 32px;
+	text-align: center;
+}
+
+#person #measurements #col_right #row_3 input#weight_age_z_score {
+	max-width: 90px;
+	border: 1px solid black;
+	margin-left: 20px;
+	text-align: center;
+}
+
+/*======================  WEIGHT FOR HEIGHT STYLES  ========================*/
+
+#person #measurements #col_right #row_4 label {
+	position: relative;
+	top: 4px;
+}
+
+#person #measurements #col_right #row_4 input#weight_height_percentile {
+	max-width: 90px;
+	border: 1px solid black;
+	margin-left: 10px;
+	text-align: center;
+}
+
+#person #measurements #col_right #row_4 input#weight_height_z_score {
+	max-width: 90px;
+	border: 1px solid black;
+	margin-left: 20px;
+	text-align: center;
+}
+
+/*===========================  BMI STYLES  =============================*/
+
+#person #measurements #col_right #row_5 label {
+	position: relative;
+	top: 4px;
+}
+
+#person #measurements #col_right #row_5 input#bmi {
+	max-width: 90px;
+	border: 1px solid black;
+	margin-left: 10px;
+	text-align: center;
+}
+
+#person #measurements #col_right #row_5 input#bmi_percentile {
+	max-width: 90px;
+	border: 1px solid black;
+	margin-left: 17px;
+	text-align: center;
+}
+
+#person #measurements #col_right #row_5 input#bmi_z_score {
+	max-width: 90px;
+	border: 1px solid black;
+	margin-left: 20px;
+	text-align: center;
+}
+
+/*======================  HEAD CIRCUM STYLES  ========================*/
+
+#person #measurements #col_right #row_6 label {
+	position: relative;
+	top: 4px;
+}
+
+#person #measurements #col_right #row_6 input#head_cir_percentile {
+	max-width: 90px;
+	border: 1px solid black;
+	margin-left: 56px;
+	text-align: center;
+}
+
+#person #measurements #col_right #row_6 input#head_cir_z_score {
+	max-width: 90px;
+	border: 1px solid black;
+	margin-left: 20px;
+	text-align: center;
+}
+
+/*==========================  MUAC STYLES  ============================*/
+
+#person #measurements #col_right #row_8 label {
+	position: relative;
+	top: 4px;
+}
+
+#person #measurements #col_right #row_8 input#muac_percentile {
+	max-width: 90px;
+	border: 1px solid black;
+	margin-left: 110px;
+	text-align: center;
+}
+
+#person #measurements #col_right #row_8 input#muac_z_score {
+	max-width: 90px;
+	border: 1px solid black;
+	margin-left: 20px;
+	text-align: center;
+}
+
+/*===========================================================================*/
+/*======================  GROWTH CHART STYLES ===============================*/
+
+#person #growth_chart {
+	background-image: url(../images/black_transparent.png);
+	background-repeat: repeat;
+	border: 1px solid black;
+	float: left;
+	width: 916px;
+	padding: 10px;
+}
+
+#person #growth_chart img {
+	border: 1px solid black;
+	margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

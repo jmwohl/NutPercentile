@@ -1,0 +1,229 @@
+@charset "utf-8";
+/* NUTSTATS TEXT STLYES*/
+
+em {
+	font-style: italic;
+}
+
+#grad_mid a {
+	color: #fff;
+	font-weight: bold;
+	font-family: Tahoma, Geneva, sans-serif;
+	text-decoration: none;
+	text-shadow: 1px 2px 4px #000;
+	height: 37px;
+	display: block;
+	padding: 10px;
+	font-size: 18px;
+	background-image: url(../images/buttons/grad_button_middle.png);
+	background-repeat: repeat-x;
+}
+
+#grad_mid a:hover { 
+	color: #ffefcc;
+}
+
+#settings_buttons_mid a {
+	color: #fff;
+	font-weight: bold;
+	font-family: Tahoma, Geneva, sans-serif;
+	text-decoration: none;
+	text-shadow: 1px 2px 4px #000;
+	height: 37px;
+	display: block;
+	padding: 10px;
+	font-size: 18px;
+	background-image: url(../images/buttons/grad_button_middle.png);
+	background-repeat: repeat-x;
+}
+
+#settings_buttons_mid a:hover { 
+	color: #ffefcc;
+}
+
+
+/*===========================================================================================================================*/
+/*====================================================  HEADER 1 (H1)  ======================================================*/
+
+h1.facility {
+	font-weight: bold;
+	font-size: 28px;
+	font-style: italic;
+	font-family: "Times New Roman", Times, serif;
+	text-shadow: 2px 2px 5px #006, -1px 2px 3px #006, 0px 1px 3px #069, 0px -2px 3px #069;
+	text-align: left;
+	float: left;
+	margin-top: 4px;
+}
+
+h1.title {
+	font-size: 32px;
+	font-weight: bold;
+	color: #ffefcc;
+	text-shadow: 2px 2px 5px #036, -1px 2px 3px #003, 0px 0px 4px #003;
+}
+
+
+/*===========================================================================================================================*/
+/*====================================================  HEADER 3 (H3)  ======================================================*/
+
+h3 {
+	font-size: 18px;
+	font-weight: bold;
+	text-shadow: 1px 2px 4px #000, 0px 0px 5px #000;
+	float: left;
+}
+
+h3 a {
+	float: left;
+	margin-left: 13px;
+	color: #9cffa3;
+	font-size: 16px;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 6px;
+	background-color: #222;
+	border: 1px solid black;
+	margin-top: -5px;
+}
+
+h3 a:hover {
+	color: #fff;
+}
+
+/*===========================================================================================================================*/
+/*====================================================  HEADER 4 (H4)  ======================================================*/
+
+h4 {
+	font-weight: bold;
+	font-size: 16px;
+	color: #daedff;
+	text-shadow: 1px 2px 4px #003, 0px 0px 5px #003;
+	float: left;
+}
+
+h4.sm_weight_k {
+	float: left;
+	position: relative;
+	top: 9px;
+	left: 4px;
+	font-size: 14px;
+	color: #a2c3e2;
+	text-shadow: 1px 1px 4px #003, 1px 1px 2px #003;
+}
+
+h4.sm_weight_p {
+	float: left;
+	position: relative;
+	top: 9px;
+	left: 4px;
+	font-size: 14px;
+	color: #a2c3e2;
+	text-shadow: 1px 1px 4px #003, 1px 1px 2px #003;
+}
+
+h4.sm_units_c {
+	float: left;
+	position: relative;
+	top: 9px;
+	left: 4px;
+	font-size: 14px;
+	color: #a2c3e2;
+	text-shadow: 1px 1px 4px #003, 1px 1px 2px #003;
+}
+
+h4.sm_units_i {
+	float: left;
+	position: relative;
+	top: 9px;
+	left: 4px;
+	font-size: 14px;
+	color: #a2c3e2;
+	text-shadow: 1px 1px 4px #003, 1px 1px 2px #003;
+}
+
+h4.hide {
+	float: left;
+	position: relative;
+	top: 9px;
+	font-size: 12px;
+	color: #a2c3e2;
+	text-shadow: 1px 1px 4px #003, 1px 1px 2px #003;
+}
+
+h4.display {
+	float: left;
+	position: relative;
+	top: 10px;
+	font-size: 12px;
+	color: #a2c3e2;
+	text-shadow: 1px 1px 4px #003, 1px 1px 2px #003;
+}
+
+h4.mf {
+	clear: left;
+	position: relative;
+	top: 15px;
+	left: 20px;
+}
+
+h4.z_score {
+	margin-left: 45px;
+}
+
+h4.flag_title {
+	margin-left: 50px;
+}
+
+h4.flag_white {
+	color: #FFF;
+	margin-left: 30px;
+	background-color: #222;
+	padding: 5px;
+	border: 1px solid black;
+}
+
+h4.flag_green {
+	color: #9cffa3;
+	margin-left: 30px;
+	background-color: #222;
+	padding: 5px;
+	border: 1px solid black;
+}
+
+h4.flag_red {
+	color: #ff4343;
+	margin-left: 30px;
+	background-color: #222;
+	padding: 5px;
+	border: 1px solid black;
+}
+
+h4.z_age {
+	margin-left: 168px;
+}
+
+h4.z_age span {
+	font-size: 14px;
+	color: #a2c3e2;
+}
+
+h4.z_height {
+	margin-left: 38px;
+}
+
+h4.z_height span {
+	font-size: 14px;
+	color: #a2c3e2;
+}
+
+/*===========================================================================================================================*/
+/*===================================================  LABELS (label)  ======================================================*/
+
+label {
+	font-weight: bold;
+	font-size: 16px;
+	color: #daedff;
+	text-shadow: 1px 2px 4px #003, 0px 0px 5px #003;
+	float: left;
+}
