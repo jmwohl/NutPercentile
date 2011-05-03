@@ -11,9 +11,9 @@ App.Controllers.MainAppController = Backbone.Controller.extend({
         personCollection.fetch({
             success: function() {
 				alert("personCollection Loaded!");
-				window.mainMenuView = new App.Views.MainMenuView();
-                window.searchView = new App.Views.SearchView({ collection: personCollection });
-				window.personView = new App.Views.PersonView();
+				// window.mainMenuView = new App.Views.MainMenuView();
+				//                 window.searchView = new App.Views.SearchView({ collection: personCollection });
+				// 			window.personView = new App.Views.PersonView();
 				mainMenuView.bind('toggleSearch', searchView.test);
             },
             error: function() {
@@ -32,6 +32,5 @@ App.Controllers.MainAppController = Backbone.Controller.extend({
     },
 	
 	showSearch: function() {
-		
 	}
 });

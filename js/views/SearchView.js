@@ -6,11 +6,11 @@ App.Views.SearchView = Backbone.View.extend({
 		"keydown input.search-field": "handleEnterPress"
 	},
 	
-	initialize: function() {
-		_.bindAll(this, "toggleSearch", "render");
+	initialize: function(options) {
+		_.bindAll(this, "toggleSearch", "render", "addOne");
 		this.input = $("input.search-field");
-		this.results = [];	
-		this.render();
+		this.results = [];
+		this._resultViews = [];
 	},
 	
 	render: function() {
@@ -23,23 +23,25 @@ App.Views.SearchView = Backbone.View.extend({
 	
 	addOne: function(person) {
 		var self = this;
-		var view = new TableRowView({model: person, templateID: "person-row-template"});
-		view.bind('click', this.resultClick);
+		// alert(person.get('p_ln'));
+		var view = new App.Views.TableRowView({model: person, templateID: "person-row-template"});
+		this._resultViews.push(view);
+		view.bind('clickTest', personView.test);
 		this.$(".results").append(view.render().el);
 	},
 	
-	toggleSearch: function() {
-		alert('toggleSearch called');
+	toggleSearch: function() {	
 		this.el.toggle();
 	},
 	
 	doSearch: function() {
+		
 		var q = this.input.val();
 		if(!q) return;
-		this.results = this.model.filter(function(person) {
+		this.results = this.collection.filter(function(person) {
 			
 			var rx = new RegExp(q, "i");
-			var ln = person.get("LastName");
+			var ln = person.get("p_ln");
 			var id = person.get("id");
 			return (ln.search(rx) != -1 || id.search(rx) != -1);
 			if(ln.search(rx) != -1 || id.search(rx) != -1) {

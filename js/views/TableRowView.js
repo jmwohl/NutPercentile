@@ -18,6 +18,7 @@ App.Views.TableRowView = Backbone.View.extend({
 	},
 	
 	render: function() {
+		// alert('rendering table row');
 		$(this.el).html(this.template(this.model.toJSON()));
 		// this.setContent();
 		return this;
@@ -33,7 +34,7 @@ App.Views.TableRowView = Backbone.View.extend({
 	},
 	
 	handleClick: function() {
-		alert('go');
+		this.trigger('clickTest', {id: this.model.get('id')});
 	}
 	
 });

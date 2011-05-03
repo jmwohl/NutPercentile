@@ -1,18 +1,19 @@
 App.Views.MainMenuView = Backbone.View.extend({
 	el: $("#MainMenu"),
 	
-	// Delegated events for creating new items, and clearing completed ones.
-    events: {
+	events: {
 		"click .add-person": "addNewPerson",
 		"click .search": "toggleSearch"
 	},
 	
 	initialize: function() {
 		_.bindAll(this, "toggleSearch");
+		// this.bind('click', this.toggleSearch);
 	},
 	
 	// Add a new person record.
 	addNewPerson: function() {
+		// alert('test');
 		this.trigger("initAddPerson");
 	},
 	

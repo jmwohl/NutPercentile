@@ -1,11 +1,9 @@
-App.Views.IndexView = Backbone.View.extend({
+App.Views.MainAppView = Backbone.View.extend({
 
     // Instead of generating a new element, bind to the existing skeleton of
     // the App already present in the HTML.
     el: $("#MainApp"),
 
-	test: "test",
-	
     // Our template for the line of statistics at the bottom of the app.
     // personTemplate: _.template($('#person-template').html()),
 
@@ -14,24 +12,27 @@ App.Views.IndexView = Backbone.View.extend({
 		"keydown #AddPerson": "addNewPerson"
 	},
 
-	test: function(e) {
-		alert("up");
-	},
-
     // At initialization we bind to the relevant events on the `Todos`
     // collection, when items are added or changed. Kick things off by
     // loading any preexisting todos that might be saved in *localStorage*.
     initialize: function() {
 		// set the model to be the person collection
-		this.model = new PersonCollection;
-		
+		this.collection = new App.Collections.PersonCollection;
+		this.collection.fetch({
+			success: function() {
+				// alert('success');
+			},
+			error: function() {
+				// alert('failure');
+			}
+		});
 		// this.$('input').first().focus();
 		_.bindAll(this, 'addAll', 'addOne');
 		//this.input    = this.$("#new-todo");
 		
-		window.mainMenu = new MainMenuView;
-		window.searchView = new SearchView({model: this.model});
-		window.personView = new PersonView;
+		window.mainMenu = new App.Views.MainMenuView;
+		window.personView = new App.Views.PersonView({collection: this.collection});
+		window.searchView = new App.Views.SearchView({collection: this.collection});
 		
 		mainMenu.bind('toggleSearch', searchView.toggleSearch);
 		mainMenu.bind('initAddPerson', personView.initAddPerson);
@@ -42,7 +43,7 @@ App.Views.IndexView = Backbone.View.extend({
 		// PeopleList.bind('all',     this.render);
 
 		// Reteive locally stored data
-		this.model.fetch();
+		
     },
 
     // Re-rendering the App means updating the person list.

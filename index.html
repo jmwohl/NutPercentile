@@ -38,24 +38,17 @@
 			padding: 3px 10px;
 			border: none;
 			border-collapse: collapse;
+			cursor: pointer;
+			-moz-user-select: none;
+			-khtml-user-select: none;
+			user-select: none;
 		}
+		.unselectable {
+		   
+		}
+		
 	
 	</style>
-
-  <script type="text/javascript" src="js/lib/jquery-1.5.2.min.js"></script>
-  <script type="text/javascript" src="js/lib/underscore.js"></script>
-  <script type="text/javascript" src="js/lib/backbone.js"></script>
-  <script type="text/javascript" src="js/lib/backbone-localstorage.js"></script>
-
-	<script type="text/javascript" src="js/Setup.js"></script>
-  	<script type="text/javascript" src="js/models/Person.js"></script>
-  	<script type="text/javascript" src="js/models/PersonCollection.js"></script>
-	<script type="text/javascript" src="js/views/TableRowView.js"></script>
-	<script type="text/javascript" src="js/views/MainMenuView.js"></script>
-	<script type="text/javascript" src="js/views/SearchView.js"></script>
-	<script type="text/javascript" src="js/views/PersonView.js"></script>
-  	<script type="text/javascript" src="js/views/IndexView.js"></script>
-	<script type="text/javascript" src="js/controllers/MainAppController.js"></script>
 	
 </head>
 <body>
@@ -70,7 +63,7 @@
 		<div id="MainMenu" class="panel">
 			<h3>Main Menu</h3>
 			<a class="add-person" href="#">Add Person</a>
-			<a class="search" href="#search">Search</a>
+			<a class="search" href="#">Search</a>
 		</div>
 		
 		<div id="Search" class="panel">
@@ -123,11 +116,24 @@
 	</div>
 	
 	<script type="text/html" id="person-row-template">
-		<td class="PersonID"><%= id %></td>
-		<td class="FirstName"><%= FirstName %></td>
-		<td class="LastName"><%= LastName %></td>
-		<td class="Birthdate"><%= Birthdate %></td>
+		<td class="p_id"><%= id %></td>
+		<td class="p_fn"><%= p_fn %></td>
+		<td class="p_ln"><%= p_ln %></td>
+		<td class="p_dob"><%= p_dob %></td>
 	</script>
+	<script type="text/javascript" src="js/lib/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="js/lib/underscore.js"></script>
+    <script type="text/javascript" src="js/lib/backbone.js"></script>
+    <script type="text/javascript" src="js/lib/backbone-localstorage.js"></script>
+
+	<script type="text/javascript" src="js/Setup.js"></script>
+  	<script type="text/javascript" src="js/models/Person.js"></script>
+  	<script type="text/javascript" src="js/models/PersonCollection.js"></script>
+	<script type="text/javascript" src="js/views/TableRowView.js"></script>
+	<script type="text/javascript" src="js/views/MainMenuView.js"></script>
+	<script type="text/javascript" src="js/views/SearchView.js"></script>
+	<script type="text/javascript" src="js/views/PersonView.js"></script>
+  	<script type="text/javascript" src="js/views/MainAppView.js"></script>
 	<script type="text/javascript" src="js/Main.js"></script>
 </body>
 </html>
