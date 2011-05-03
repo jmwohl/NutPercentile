@@ -1,5 +1,5 @@
 App.Views.PersonView = Backbone.View.extend({
-	el: $("#Person"),
+	el: $("#person"),
 	
 	events: {
 		"change #PersonInfo input" :"changed",
@@ -13,7 +13,12 @@ App.Views.PersonView = Backbone.View.extend({
 	},
 	
 	loadPerson: function(e) {
-		alert("Loading Person");
+		var person = mainAppView.collection.get(e.id);
+		if(person != undefined) {
+			
+		} else {
+			alert("there was a problem loading the selected person's record");
+		}
 	},
 	
 	initAddPerson: function(e) {

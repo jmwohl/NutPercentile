@@ -4,6 +4,7 @@ App.Views.TableRowView = Backbone.View.extend({
 
 	events: {
 		"mouseover": "highlight",
+		"mouseover td": "highlight",
 		"mouseout": "unhighlight",
 		"click": "handleClick"
 	},
@@ -25,7 +26,7 @@ App.Views.TableRowView = Backbone.View.extend({
 	},
 	
 	highlight: function() {
-		// alert(this.el.html());
+		// alert($(this.el).html());
 		$(this.el).css({background: '#ff0'});
 	},
 	
@@ -34,7 +35,7 @@ App.Views.TableRowView = Backbone.View.extend({
 	},
 	
 	handleClick: function() {
-		this.trigger('clickTest', {id: this.model.get('id')});
+		this.trigger('select:search_result', {id: this.model.get('id')});
 	}
 	
 });

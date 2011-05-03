@@ -1,41 +1,40 @@
 App.Views.SearchView = Backbone.View.extend({
-	el: $("#Search"),
+	el: $("#search"),
 	
 	events: {
-		"click .search": "doSearch",
-		"keydown input.search-field": "handleEnterPress"
+		"click #search_submit": "doSearch",
+		"keydown input.#search_field": "handleEnterPress"
 	},
 	
 	initialize: function(options) {
 		_.bindAll(this, "toggleSearch", "render", "addOne");
-		this.input = $("input.search-field");
+		this.input = $("input#search_field");
 		this.results = [];
 		this._resultViews = [];
 	},
 	
 	render: function() {
 		// Re-rendering the search view means updating the search results table with the results list
-		this.$(".results .table-row").remove();
+		this.$(".search_results .table-row").remove();
 		if(this.results.length) {
 			this.results.forEach(this.addOne);
 		}
 	},
 	
 	addOne: function(person) {
-		var self = this;
 		// alert(person.get('p_ln'));
 		var view = new App.Views.TableRowView({model: person, templateID: "person-row-template"});
 		this._resultViews.push(view);
-		view.bind('clickTest', personView.test);
-		this.$(".results").append(view.render().el);
+		view.bind('select:search_result', personView.loadPerson);
+		view.bind('select:search_result', this.toggleSearch);
+		this.$(".search_results").append(view.render().el);
 	},
 	
 	toggleSearch: function() {	
-		this.el.toggle();
+		this.el.slideToggle();
 	},
 	
 	doSearch: function() {
-		
 		var q = this.input.val();
 		if(!q) return;
 		this.results = this.collection.filter(function(person) {

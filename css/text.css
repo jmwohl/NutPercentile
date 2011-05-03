@@ -1,11 +1,11 @@
-@charset "utf-8";
+
 /* NUTSTATS TEXT STLYES*/
 
 em {
 	font-style: italic;
 }
 
-#grad_mid a {
+.grad_mid a {
 	color: #fff;
 	font-weight: bold;
 	font-family: Tahoma, Geneva, sans-serif;
@@ -19,11 +19,11 @@ em {
 	background-repeat: repeat-x;
 }
 
-#grad_mid a:hover { 
+.grad_mid a:hover { 
 	color: #ffefcc;
 }
 
-#settings_buttons_mid a {
+.settings_buttons_mid a {
 	color: #fff;
 	font-weight: bold;
 	font-family: Tahoma, Geneva, sans-serif;
@@ -37,7 +37,7 @@ em {
 	background-repeat: repeat-x;
 }
 
-#settings_buttons_mid a:hover { 
+.settings_buttons_mid a:hover { 
 	color: #ffefcc;
 }
 

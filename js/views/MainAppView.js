@@ -2,14 +2,15 @@ App.Views.MainAppView = Backbone.View.extend({
 
     // Instead of generating a new element, bind to the existing skeleton of
     // the App already present in the HTML.
-    el: $("#MainApp"),
+    el: $("#container"),
 
     // Our template for the line of statistics at the bottom of the app.
     // personTemplate: _.template($('#person-template').html()),
 
     // Delegated events for creating new items, and clearing completed ones.
     events: {
-		"keydown #AddPerson": "addNewPerson"
+		"keydown #AddPerson": "addNewPerson",
+		"click .settings_btn": "toggleSettings"
 	},
 
     // At initialization we bind to the relevant events on the `Todos`
@@ -18,6 +19,7 @@ App.Views.MainAppView = Backbone.View.extend({
     initialize: function() {
 		// set the model to be the person collection
 		this.collection = new App.Collections.PersonCollection;
+		this.settings = new App.Models.Settings;
 		this.collection.fetch({
 			success: function() {
 				// alert('success');
@@ -37,18 +39,17 @@ App.Views.MainAppView = Backbone.View.extend({
 		mainMenu.bind('toggleSearch', searchView.toggleSearch);
 		mainMenu.bind('initAddPerson', personView.initAddPerson);
 		searchView.bind('click', personView.test);
-		// PeopleList.bind('add', this.addOne);
-		// PeopleList.bind('refresh', this.addAll);
-
-		// PeopleList.bind('all',     this.render);
-
-		// Reteive locally stored data
 		
     },
 
     // Re-rendering the App means updating the person list.
     render: function() {
 		alert("re-rendered");
+	},
+	
+	// Toggle settings panel
+	toggleSettings: function() {
+		this.$('#settings').slideToggle();
 	},
 
     // Add a single person item to the list by creating a view for it, and

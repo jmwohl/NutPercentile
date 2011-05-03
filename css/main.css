@@ -1,4 +1,4 @@
-@charset "utf-8";
+
 /* NUTSTATS MAIN CSS STYLES */
 
 /*===========================================================================================================================*/
@@ -9,7 +9,7 @@ body {
 	background-repeat: no-repeat;
 	background-color: #0064a9;
 	padding: 30px;
-	font-family: Tahoma, Geneva, sans-serifl;
+	font-family: Tahoma, Geneva, sans-serif;
 	color: #FFF;
 }
 
@@ -22,14 +22,14 @@ body {
 	width: 100%;
 }
 
-#grad_button {
+.grad_button {
 	float: right;
 	margin-left: 10px;
 	height: 37px;
 	overflow: hidden;
 }
 
-#grad_left {
+.grad_left {
 	float: left;
 	background-image: url(../images/buttons/grad_button_left.png);
 	background-repeat: no-repeat;
@@ -37,15 +37,15 @@ body {
 	height: 37px;
 }
 
-#grad_mid {
+.grad_mid {
 	float: left;
-	background-image: url(../images/buttons/grad_btton_middle.png);
+	background-image: url(../images/buttons/grad_button_middle.png);
 	background-repeat: repeat-x;
 	overflow: hidden;
 	height: 37px;
 }
 
-#grad_right {
+.grad_right {
 	background-image: url(../images/buttons/grad_button_right.png);
 	background-repeat: no-repeat;
 	height: 37px;
@@ -152,6 +152,7 @@ textarea.blue textarea:focus, textarea.blue:focus {
 	padding: 10px;
 	margin-bottom: 15px;
 	float: left;
+	display: none;
 }
 
 #settings #col_left {
@@ -173,7 +174,7 @@ textarea.blue textarea:focus, textarea.blue:focus {
 	top: 41px;
 }
 
-#settings_buttons_left {
+.settings_buttons_left {
 	background-image: url(../images/buttons/grad_button_left.png);
 	width: 3px;
 	height: 37px;
@@ -181,14 +182,14 @@ textarea.blue textarea:focus, textarea.blue:focus {
 	margin-left: 10px;
 }
 
-#settings_buttons_right {
+.settings_buttons_right {
 	background-image: url(../images/buttons/grad_button_right.png);
 	width: 3px;
 	height: 37px;
 	float: left;
 }
 
-#settings_buttons_mid {
+.settings_buttons_mid {
 	background-image: url(../images/buttons/grad_button_middle.png);
 	height: 37px;
 	background-repeat: repeat-x;
@@ -371,7 +372,6 @@ textarea.blue textarea:focus, textarea.blue:focus {
 
 #s_display {
 	float: left;
-/*	border: 1px solid red; */
 	margin-top: 0px;
 	clear: both;
 }
@@ -435,13 +435,13 @@ textarea.blue textarea:focus, textarea.blue:focus {
 	color: #ffefcc;
 }
 
-table.search {
+table.search_results {
 	border: 1px solid black;
 	background-color: #FFF;
 	float: left;
 }
 
-table.search th {
+table.search_results th {
 	height: 20px;
 	background-color: #e6e6e6;
 	color: #000;
@@ -454,7 +454,7 @@ table.search th {
 	padding: 5px;
 }
 
-table.search th.left {
+table.search_results th.left {
 	background-color: #e6e6e6;
 	color: #000;
 	font-size: 16px;
@@ -466,8 +466,7 @@ table.search th.left {
 	padding: 5px;
 }
 
-table.search td.info {
-	background-color: white;
+table.search_results td.info {
 	color: #000;
 	font-size: 14px;
 	text-align: left;
@@ -477,8 +476,7 @@ table.search td.info {
 	border-top: 1px solid #000;
 }
 
-table.search td.info_top {
-	background-color: white;
+table.search_results td.info_top {
 	color: #000;
 	font-size: 14px;
 	text-align: left;
@@ -488,8 +486,7 @@ table.search td.info_top {
 	border-top: 0px;
 }
 
-table.search td.info_left {
-	background-color: white;
+table.search_results td.info_left {
 	color: #000;
 	font-size: 14px;
 	text-align: left;
@@ -499,8 +496,7 @@ table.search td.info_left {
 	border-top: 1px solid #000;
 }
 
-table.search td.info_top_left {
-	background-color: white;
+table.search_results td.info_top_left {
 	color: #000;
 	font-size: 14px;
 	text-align: left;
