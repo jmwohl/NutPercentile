@@ -41,7 +41,8 @@ App.Views.SearchView = Backbone.View.extend({
 			
 			var rx = new RegExp(q, "i");
 			var ln = person.get("p_ln");
-			var id = person.get("id");
+			var id = person.get("p_id");
+			if(!ln || !id) return false;
 			return (ln.search(rx) != -1 || id.search(rx) != -1);
 			if(ln.search(rx) != -1 || id.search(rx) != -1) {
 				return true;

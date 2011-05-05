@@ -9,7 +9,7 @@ App.Views.MainAppView = Backbone.View.extend({
 
     // Delegated events for creating new items, and clearing completed ones.
     events: {
-		"keydown #AddPerson": "addNewPerson",
+		"click .help_btn": "toggleHelp",
 		"click .settings_btn": "toggleSettings"
 	},
 
@@ -17,9 +17,23 @@ App.Views.MainAppView = Backbone.View.extend({
     // collection, when items are added or changed. Kick things off by
     // loading any preexisting todos that might be saved in *localStorage*.
     initialize: function() {
-		// set the model to be the person collection
+		
+		// set the collection to be the person collection
 		this.collection = new App.Collections.PersonCollection;
+		
+		// set up the settings model
 		this.settings = new App.Models.Settings;
+		
+		// get the stored settings
+		this.settings.fetch({
+			success: function() {
+				alert("settings fetched");
+			},
+			error: function() {
+				alert("could NOT fetch settings");
+			}
+		});
+		
 		this.collection.fetch({
 			success: function() {
 				// alert('success');
@@ -32,19 +46,24 @@ App.Views.MainAppView = Backbone.View.extend({
 		_.bindAll(this, 'addAll', 'addOne');
 		//this.input    = this.$("#new-todo");
 		
-		window.mainMenu = new App.Views.MainMenuView;
+		window.settingsView = new App.Views.SettingsView({model: this.settings});
+		window.mainMenuView = new App.Views.MainMenuView;
 		window.personView = new App.Views.PersonView({collection: this.collection});
 		window.searchView = new App.Views.SearchView({collection: this.collection});
 		
-		mainMenu.bind('toggleSearch', searchView.toggleSearch);
-		mainMenu.bind('initAddPerson', personView.initAddPerson);
-		searchView.bind('click', personView.test);
+		mainMenuView.bind('toggle:search', searchView.toggleSearch);
+		mainMenuView.bind('init:new_person', personView.initAddPerson);
 		
     },
 
     // Re-rendering the App means updating the person list.
     render: function() {
 		alert("re-rendered");
+	},
+	
+	// Toggle help panel?
+	toggleHelp: function() {
+		alert('@TODO: toggle HELP panel');
 	},
 	
 	// Toggle settings panel

@@ -40,8 +40,101 @@
             <div class="grad_right"></div>
         </div>
 		
+		<!--===================================================================================================-->
+		<!--=======================================  SETTINGS =================================================-->
+
+			<div id="settings">
+
+		    	<h1 class="title">Settings</h1>
+
+		        <div class="divider_horz_boxed"></div>
+
+		        <div id="col_left">
+
+		        	<div id="facility">
+		            	<label for="facility">Name Of Facility Or Study</label>
+		                <input class="blue" type="text" name="s_facility" id="s_facility">
+		            </div><!--FACILITY-->
+
+		            <div id="language">
+		            	<label for="language">Language</label>
+		                <select name="s_language">
+							<option value="en" selected="selected">English</option>
+							<option value="de">German</option>
+							<option value="es">Spanish</option>
+							<option value="fr">French</option>
+						</select>
+		            </div><!--END LANGUAGE-->
+
+		            <div id="s_weight"><!--SM means "Settings Measurement"-->
+		            	<label for="sm_weight">Measurement Units For Weight</label>
+		          		<input id="s_weight_k" name="s_weight_units" type="radio" value="Kilograms"> <h4 class="sm_weight_k">Kilograms</h4>
+		                <input id="s_weight_p" name="s_weight_units" type="radio" value="Pounds"> <h4 class="sm_weight_p">Pounds</h4>							
+		            </div><!--END SETTINGS MEASUREMENT WEIGHT-->
+
+		            <div id="s_units">
+		            	<label for="s_units">Linear Measurement Units</label>
+		                <input id="s_units_c" name="s_height_units" type="radio" value="Centimeters"> <h4 class="sm_units_c">Centimeters</h4>
+		                <input id="s_units_i" name="s_height_units" type="radio" value="Inches"> <h4 class="sm_units_i">Inches</h4>
+		            </div>
+
+		        </div><!--END LEFT COLUMN-->
+
+		    	<div id="col_right">
+
+		        	<div id="reference">
+		            	<label for="reference">Reference Data From</label>
+		                <select name="s_reference">
+		                	<option value="cdc2000" selected="selected">Centers for Disease Control (CDC 2000)</option>
+		                    <option value="un2010">United Nations Child Growth Standards (UN 2010)</option>
+		                    <option value="un_cdc">UN2010 before age 2 years; CDC Age 2-18 (Reccomended)</option>
+		                </select>
+		            </div><!--END REFERENCE-->
+
+		            <div id="hide">
+		            	<label for="hide">Hide</label>
+		                <input type="checkbox" name="s_hide_head" value="Head Circumference" /> <h4 class="hide">Head Circumference</h4>
+						<input type="checkbox" name="s_hide_arm" value="Arm Circumference" /> <h4 class="hide">Arm Circumference</h4>
+		            </div><!--END HIDE-->
+
+		            <div id="r_display">
+		            	<label for="r_display">Results Display</label>
+		                <input type="checkbox" name="s_result_display_std" id="r_display_std"> <h4 class="hide">Standard Growth Chart</h4>
+		                <input type="checkbox" name="s_result_display_z" id="r_display_z"> <h4 class="hide">Z-Score Growth Chart</h4>
+		                <input type="checkbox" name="s_result_display_stat" id="r_display_stat"> <h4 class="hide">Statistics</h4>
+		            </div><!--END RESULTS DISPLAY-->
+
+		            <div id="s_display">
+		            	<label for="s_display">Screen Display</label>
+		                <input id="s_display_st" name="s_screen_display" type="radio" value="Standard"> <h4 class="display">Standard</h4>
+		                <input id="s_display_sm" name="s_screen_display" type="radio" value="Small"> <h4 class="display"> Small</h4>
+		            </div><!--END SCREEN DISPLAY-->
+
+
+		        	<div id="settings_buttons">
+
+		            	<div class="settings_buttons_left"></div>
+		                <div class="settings_buttons_mid">
+		                	<a id="s_save_btn" href="#">SAVE</a>
+		                </div><!--END SAVE BUTTON MID-->
+		                <div class="settings_buttons_right"></div>
+
+		                <div class="settings_buttons_left"></div>
+		                <div class="settings_buttons_mid">
+		                	<a id="s_defaults_btn" href="#">DEFAULTS</a>
+		                </div><!--END DEFAULTS BUTTON MID-->
+		                <div class="settings_buttons_right"></div>
+
+		            </div><!--END SETTINGS BUTTONS-->
+
+		        </div><!--END RIGHT COLUMN-->
+
+		    </div><!--END SETTINGS-->
+		
+		
+		
         <br /><br />
-		<div id="divider_horz"></div>
+		<div class="divider_horz"></div>
 	</div><!--END HEADER-->
 
 <!--===================================================================================================-->
@@ -63,98 +156,8 @@
             </div>
             <div class="grad_right"></div>
         </div>
+		<div class="clearfix"></div>
 	</div>
-
-<!--===================================================================================================-->
-<!--=======================================  SETTINGS =================================================-->
-
-	<div id="settings">
-    
-    	<h1 class="title">Settings</h1>
-        
-        <div id="divider_horz_boxed"></div>
-        
-        <div id="col_left">
-        
-        	<div id="facility">
-            	<label for="facility">Name Of Facility Or Study</label>
-                <input class="blue" type="text" name="facility" id="facility">
-            </div><!--FACILITY-->
-            
-            <div id="language">
-            	<label for="language">Language</label>
-                <select name="language">
-					<option value="l1" selected="selected">English</option>
-					<option value="l2">German</option>
-					<option value="l3">Spanish</option>
-					<option value="l4">French</option>
-				</select>
-            </div><!--END LANGUAGE-->
-            
-            <div id="sm_weight"><!--SM means "Settings Measurement"-->
-            	<label for="sm_weight">Measurement Units For Weight</label>
-          		<input id="sm_weight_k" name="sm_weight" type="radio" value="Kilograms"> <h4 class="sm_weight_k">Kilograms</h4>
-                <input id="sm_weight_p" name="sm_weight" type="radio" value="Pounds"> <h4 class="sm_weight_p">Pounds</h4>							
-            </div><!--END SETTINGS MEASUREMENT WEIGHT-->
-
-            <div id="sm_units">
-            	<label for="sm_units">Linear Measurement Units</label>
-                <input id="sm_units_c" name="sm_units" type="radio" value="Centimeters"> <h4 class="sm_units_c">Centimeters</h4>
-                <input id="sm_units_i" name="sm_units" type="radio" value="Inches"> <h4 class="sm_units_i">Inches</h4>
-            </div>
-        
-        </div><!--END LEFT COLUMN-->
-    
-    	<div id="col_right">
-        
-        	<div id="reference">
-            	<label for="reference">Reference Data From</label>
-                <select name="reference">
-                	<option value="cdc2000" selected="selected">Centers for Disease Control (CDC 2000)</option>
-                    <option value="un2010">United Nations Child Growth Standards (UN 2010)</option>
-                    <option value="un_cdc">UN2010 before age 2 years; CDC Age 2-18 (Reccomended)</option>
-                </select>
-            </div><!--END REFERENCE-->
-            
-            <div id="hide">
-            	<label for="hide">Hide</label>
-                <input type="checkbox" name="hide" value="Head Circumference" /> <h4 class="hide">Head Circumference</h4>
-				<input type="checkbox" name="hide" value="Arm Circumference" /> <h4 class="hide">Arm Circumference</h4>
-            </div><!--END HIDE-->
-            
-            <div id="r_display">
-            	<label for="r_display">Results Display</label>
-                <input type="checkbox" name="r_display" id="r_display_std"> <h4 class="hide">Standard Growth Chart</h4>
-                <input type="checkbox" name="r_display" id="r_display_z"> <h4 class="hide">Z-Score Growth Chart</h4>
-                <input type="checkbox" name="r_display" id="r_display_stat"> <h4 class="hide">Statistics</h4>
-            </div><!--END RESULTS DISPLAY-->
-            
-            <div id="s_display">
-            	<label for="s_display">Screen Display</label>
-                <input id="s_display_st" name="display" type="radio" value="Standard"> <h4 class="display">Standard</h4>
-                <input id="s_display_sm" name="display" type="radio" value="Small"> <h4 class="display"> Small</h4>
-            </div><!--END SCREEN DISPLAY-->
-        
-        
-        	<div id="settings_buttons">
-            
-            	<div class="settings_buttons_left"></div>
-                <div class="settings_buttons_mid">
-                	<a id="s_save" href="#">SAVE</a>
-                </div><!--END SAVE BUTTON MID-->
-                <div class="settings_buttons_right"></div>
-        		
-                <div class="settings_buttons_left"></div>
-                <div class="settings_buttons_mid">
-                	<a id="s_defaults" href="#">DEFAULTS</a>
-                </div><!--END DEFAULTS BUTTON MID-->
-                <div class="settings_buttons_right"></div>
-        
-            </div><!--END SETTINGS BUTTONS-->
-
-        </div><!--END RIGHT COLUMN-->
-        
-    </div><!--END SETTINGS-->
 
 <!--===================================================================================================-->
 <!--=======================================  SEARCH  ==================================================-->
@@ -163,7 +166,7 @@
     
     	<h1 class="title">Search</h1>
         
-        <div id="divider_horz_boxed"></div>
+        <div class="divider_horz_boxed"></div>
         
         <label for="search">PERSON ID OR LAST NAME:</label>
         <input class="blue" type="text" name="search" id="search_field">
@@ -185,16 +188,16 @@
 
 	<div id="person">
     
-    	<h1 class="title">Person Name, ####</h1>
+    	<h1 class="title">Person</h1>
         
-        <div id="divider_horz_boxed"></div>
+        <div class="divider_horz_boxed"></div>
         
         <!--===========================================================================================-->
         <!--=====================================  PERSON INFORMATION =================================-->
         
         <div id="info">
         
-        	<h3>PERSON INFORMATION</h3>
+        	<h3>PERSONAL INFORMATION</h3>
             
             <div id="row_1">
             
@@ -204,8 +207,8 @@
         		</div><!--END PERSON ID-->
                 
                 <div id="p_mf">
-                	<h4 class="mf">Male</h4> <input id="sex" name="sex" type="radio" value="Male">
-                    <h4 class="mf">Female</h4> <input id="sex" name="sex" type="radio" value="Female">
+                	<h4 class="mf">Male</h4> <input id="p_sex_m" name="p_sex" type="radio" value="1">
+                    <h4 class="mf">Female</h4> <input id="p_sex_f" name="p_sex" type="radio" value="2">
                 </div>
                 
             	<div id="p_fn">
@@ -236,7 +239,7 @@
         
         	<h3><a href="#">New Measurement</a></h3>
             
-        	<div id="divider_horz_measurements"></div>
+        	<div class="divider_horz_measurements"></div>
         	
             <!--========================= LEFT COLUMN ========================-->
         	<div id="col_left">
@@ -298,7 +301,7 @@
             
            	</div><!--END LEFT COLUMN-->
             
-            <div id="divider_vert"></div>
+            <div class="divider_vert"></div>
             
             <!--=========================  RIGHT COLUMN  ==========================-->
             <div id="col_right">
@@ -381,10 +384,44 @@
 
 </div><!--END CONTAINER-->
 <script type="text/html" id="person-row-template">
-	<td class="p_id info_top_left"><%= id %></td>
+	<td class="p_id info_top_left"><%= p_id %></td>
 	<td class="p_fn info_top"><%= p_fn %></td>
 	<td class="p_ln info_top"><%= p_ln %></td>
 	<td class="p_dob info_top"><%= p_dob %></td>
+</script>
+
+<script type="text/html" id="person-info-template">
+	<h3>PERSONAL INFORMATION</h3>
+    
+    <div id="row_1">
+    
+    	<div id="p_id">
+    		<label for="p_id">Person ID</label>
+    		<input class="blue" type="text" name="p_id" value="<%= p_id %>" id="p_id">
+		</div><!--END PERSON ID-->
+        
+        <div id="p_mf">
+        	<h4 class="mf">Male</h4> <input id="p_sex_m" <% if(p_sex != undefined && p_sex == "1") { %> checked="checked" <% } %> name="p_sex" type="radio" value="Male">
+            <h4 class="mf">Female</h4> <input id="p_sex_f" <% if(p_sex != undefined && p_sex == "2") { %> checked="checked" <% } %> name="p_sex" type="radio" value="Female">
+        </div>
+        
+    	<div id="p_fn">
+        	<label for="p_fn">First Name</label>
+            <input class="blue" type="text" name="p_fn" id="p_fn" value="<%= p_fn %>">
+        </div><!--END PERSON FIRST NAME-->
+        
+        <div id="p_ln">
+        	<label for="p_ln">Last Name</label>
+            <input class="blue" type="text" name="p_ln" id="p_ln" value="<%= p_ln %>">
+        </div><!--END PERSON LAST NAME-->
+        
+        <div id="p_dob">
+        	<label for="p_dob">Date Of Birth</label>
+            <input class="blue" type="text" name="p_dob" id="p_dob" value="<%= p_dob %>">
+        </div><!--END PERSON DATE OF BIRTH-->
+    
+    </div><!--END ROW 1-->
+
 </script>
 <script type="text/javascript" src="js/lib/jquery-1.5.2.min.js"></script>
 <script type="text/javascript" src="js/lib/underscore.js"></script>
@@ -399,6 +436,7 @@
 <script type="text/javascript" src="js/views/MainMenuView.js"></script>
 <script type="text/javascript" src="js/views/SearchView.js"></script>
 <script type="text/javascript" src="js/views/PersonView.js"></script>
+<script type="text/javascript" src="js/views/PersonInfoView.js"></script>
 <script type="text/javascript" src="js/views/SettingsView.js"></script>
 <script type="text/javascript" src="js/views/MainAppView.js"></script>
 <script type="text/javascript" src="js/Main.js"></script>
