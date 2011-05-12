@@ -17,48 +17,129 @@ App.Views.MainAppView = Backbone.View.extend({
     // collection, when items are added or changed. Kick things off by
     // loading any preexisting todos that might be saved in *localStorage*.
     initialize: function() {
+		// bind 'this' to appropriate methods
+		_.bindAll(this, 'render', 'initializeSettings', 'resetSettings');
+		
 		
 		// set the collection to be the person collection
 		this.collection = new App.Collections.PersonCollection;
-		
-		// set up the settings model
-		this.settings = new App.Models.Settings;
-		
-		// get the stored settings
-		this.settings.fetch({
-			success: function() {
-				alert("settings fetched");
-			},
-			error: function() {
-				alert("could NOT fetch settings");
-			}
-		});
-		
+			
 		this.collection.fetch({
 			success: function() {
 				// alert('success');
 			},
 			error: function() {
-				// alert('failure');
+				alert('failure');
 			}
 		});
-		// this.$('input').first().focus();
-		_.bindAll(this, 'addAll', 'addOne');
-		//this.input    = this.$("#new-todo");
 		
-		window.settingsView = new App.Views.SettingsView({model: this.settings});
+		// collection				
+		// this.initializeSettings();
+		
+		// model
+		this.initSettings();
+		
+		
+		
+		// _.bindAll(this, 'addAll', 'addOne');
+		
+		
 		window.mainMenuView = new App.Views.MainMenuView;
 		window.personView = new App.Views.PersonView({collection: this.collection});
 		window.searchView = new App.Views.SearchView({collection: this.collection});
 		
+		
+		// VIEW EVENT BINDINGS
 		mainMenuView.bind('toggle:search', searchView.toggleSearch);
 		mainMenuView.bind('init:new_person', personView.initAddPerson);
 		
+		// MODEL & COLLECTION EVENT BINDINGS
+		
     },
 
-    // Re-rendering the App means updating the person list.
+	/*
+	*	Initialize the settings model and settings view.
+	*
+	*/
+	initSettings: function() {
+		var self = this;
+		this.settings = new App.Models.Settings({id: "S101"});
+		this.settings.fetch({
+			success: function() {
+				alert('success');
+			},
+			error: function() {
+				self.settings.save();
+				alert('error');
+			}
+		});
+		this.settings.bind('change', this.render);
+		window.settingsView = new App.Views.SettingsView({model: this.settings});
+		this.render();
+	},
+
+	/*
+	*	Initialize settings COLLECTION
+	*	DEPRECATED
+	*
+	*/
+	initializeSettings: function() {
+		
+		// set up the settings model
+		this.settings = new App.Collections.SettingCollection;
+		
+		// set default ID;
+		var sID = "1000";
+		// this.settings = new App.Models.Settings;
+		var self = this;
+		
+		// get the stored settings
+		this.settings.fetch({
+			success: function() {
+				// check for first-time run, set defaults:
+				alert("sID: "+sID);
+				if(!self.settings.get(sID)) {
+					// Use a settings model — this allows for multiple settings presets feature, if desired
+					this.settingsModel = self.settings.create(new App.Models.Settings({id: sID}));
+					
+					// Potentially trigger a first-time run popup
+					alert('settings initialized');
+				} else {
+					alert('already initialized');
+					this.settingsModel = self.settings.get(sID);
+					alert("MainAppView settingsModel.s_facility: "+this.settingsModel.get('s_facility'));
+				}
+				
+				// Setup bindings on settings model
+				this.settingsModel.bind('change', self.render);
+				
+				window.settingsView = new App.Views.SettingsView({model: this.settingsModel});
+				
+				// Setup bindings on settings view
+				settingsView.bind('resetSettings', self.resetSettings);
+				
+				// RENDER MAIN APP (only updates facility name)
+				self.render();
+			},
+			error: function() {
+				alert("could NOT fetch settings");
+			}
+		});
+	},
+
     render: function() {
-		alert("re-rendered");
+		// update the clinic name
+		// alert("rendering main app view");
+		this.$('#header h1.facility').text(this.settings.get('s_facility'));
+		return this;
+	},
+	
+	resetSettings: function() {
+		// settingsView.model.destroy();
+		// 		settingsView.model = this.settings.create(new App.Models.Settings);
+		// 		settingsView.model.bind('change', this.render);
+		settingsView.render();
+		this.render();
 	},
 	
 	// Toggle help panel?
@@ -69,42 +150,5 @@ App.Views.MainAppView = Backbone.View.extend({
 	// Toggle settings panel
 	toggleSettings: function() {
 		this.$('#settings').slideToggle();
-	},
-
-    // Add a single person item to the list by creating a view for it, and
-    // appending its element to the `<table>`.
-    addOne: function(person) {
-		// alert("adding "+person.get("FirstName"));
-		var view = new TableRowView({model: person, templateID: "person-row-template"});
-		this.$("#PeopleList").append(view.render().el);
-    },
-    
-    // Add all items in the **PeopleList** collection at once.
-    addAll: function() {
-		// alert("add all");
-		PeopleList.each(this.addOne);
-    },
-    
-    // // Generate the attributes for a new Todo item.
-	newAttributes: function() {
-		// alert(this.$('input#FirstName').val());
-		return {
-			FirstName: this.$('input#FirstName').val(),
-			LastName: this.$('input#LastName').val(),
-			Birthdate: this.$('input#Birthdate').val(),
-		};
-	},
-    // If you hit return in the main input field, create new **Todo** model,
-    // persisting it to *localStorage*.
-    createOnEnter: function(e) {
-		if (e.keyCode != 13) return;
-		var newPerson = PeopleList.create(this.newAttributes());
-		// this.addOne(newPerson);
-		this.$('input').first().focus();
-		this.$('input').val('');
-    },
-
-	addNewPerson: function(e) {
-		alert('Add New Person');
 	}
   });

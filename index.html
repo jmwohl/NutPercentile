@@ -4,9 +4,10 @@
 <head>
 <!--SCRIPTS HERE-->
 
-<link href="css/reset.css" rel="stylesheet" type="text/css">
-<link href="css/main.css" rel="stylesheet" type="text/css">
-<link href="css/text.css" rel="stylesheet" type="text/css">
+<link href="css/reset.css" rel="stylesheet" type="text/css" />
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<link href="css/text.css" rel="stylesheet" type="text/css" />
+<link href="css/ui-lightness/jquery-ui-1.8.12.custom.css" rel="stylesheet" type="text/css" />
 
 <!--[if IE]>
 <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -22,7 +23,7 @@
 <!--=======================================  HEADER  ==================================================-->
 
 	<div id="header">
-		<h1 class="facility">My Clinic Name</h1>
+		<h1 class="facility"></h1>
 		
         <div class="grad_button">
         	<div class="grad_left"></div>
@@ -53,7 +54,7 @@
 
 		        	<div id="facility">
 		            	<label for="facility">Name Of Facility Or Study</label>
-		                <input class="blue" type="text" name="s_facility" id="s_facility">
+		                <input class="blue" type="text" name="s_facility" id="s_facility" />
 		            </div><!--FACILITY-->
 
 		            <div id="language">
@@ -66,16 +67,16 @@
 						</select>
 		            </div><!--END LANGUAGE-->
 
-		            <div id="s_weight"><!--SM means "Settings Measurement"-->
+		            <div id="sm_weight"><!--SM means "Settings Measurement"-->
 		            	<label for="sm_weight">Measurement Units For Weight</label>
-		          		<input id="s_weight_k" name="s_weight_units" type="radio" value="Kilograms"> <h4 class="sm_weight_k">Kilograms</h4>
-		                <input id="s_weight_p" name="s_weight_units" type="radio" value="Pounds"> <h4 class="sm_weight_p">Pounds</h4>							
+		          		<input id="sm_weight_k" name="s_weight_units" type="radio" value="Kilograms" /> <h4 class="sm_weight_k">Kilograms</h4>
+		                <input id="sm_weight_p" name="s_weight_units" type="radio" value="Pounds" /> <h4 class="sm_weight_p">Pounds</h4>							
 		            </div><!--END SETTINGS MEASUREMENT WEIGHT-->
 
-		            <div id="s_units">
-		            	<label for="s_units">Linear Measurement Units</label>
-		                <input id="s_units_c" name="s_height_units" type="radio" value="Centimeters"> <h4 class="sm_units_c">Centimeters</h4>
-		                <input id="s_units_i" name="s_height_units" type="radio" value="Inches"> <h4 class="sm_units_i">Inches</h4>
+		            <div id="sm_units">
+		            	<label for="sm_units">Linear Measurement Units</label>
+		                <input id="sm_units_c" name="s_height_units" type="radio" value="Centimeters" /> <h4 class="sm_units_c">Centimeters</h4>
+		                <input id="sm_units_i" name="s_height_units" type="radio" value="Inches" /> <h4 class="sm_units_i">Inches</h4>
 		            </div>
 
 		        </div><!--END LEFT COLUMN-->
@@ -93,31 +94,31 @@
 
 		            <div id="hide">
 		            	<label for="hide">Hide</label>
-		                <input type="checkbox" name="s_hide_head" value="Head Circumference" /> <h4 class="hide">Head Circumference</h4>
-						<input type="checkbox" name="s_hide_arm" value="Arm Circumference" /> <h4 class="hide">Arm Circumference</h4>
+		                <input type="checkbox" name="s_hide_head" /> <h4 class="hide">Head Circumference</h4>
+						<input type="checkbox" name="s_hide_arm" /> <h4 class="hide">Arm Circumference</h4>
 		            </div><!--END HIDE-->
 
 		            <div id="r_display">
 		            	<label for="r_display">Results Display</label>
-		                <input type="checkbox" name="s_result_display_std" id="r_display_std"> <h4 class="hide">Standard Growth Chart</h4>
-		                <input type="checkbox" name="s_result_display_z" id="r_display_z"> <h4 class="hide">Z-Score Growth Chart</h4>
-		                <input type="checkbox" name="s_result_display_stat" id="r_display_stat"> <h4 class="hide">Statistics</h4>
+		                <input type="checkbox" name="s_results_display_std" id="r_display_std" /> <h4 class="hide">Standard Growth Chart</h4>
+		                <input type="checkbox" name="s_results_display_z" id="r_display_z" /> <h4 class="hide">Z-Score Growth Chart</h4>
+		                <input type="checkbox" name="s_results_display_stat" id="r_display_stat" /> <h4 class="hide">Statistics</h4>
 		            </div><!--END RESULTS DISPLAY-->
 
 		            <div id="s_display">
 		            	<label for="s_display">Screen Display</label>
-		                <input id="s_display_st" name="s_screen_display" type="radio" value="Standard"> <h4 class="display">Standard</h4>
-		                <input id="s_display_sm" name="s_screen_display" type="radio" value="Small"> <h4 class="display"> Small</h4>
+		                <input id="s_display_st" name="s_screen_display" type="radio" value="Standard" /> <h4 class="display">Standard</h4>
+		                <input id="s_display_sm" name="s_screen_display" type="radio" value="Small" /> <h4 class="display"> Small</h4>
 		            </div><!--END SCREEN DISPLAY-->
 
 
 		        	<div id="settings_buttons">
 
-		            	<div class="settings_buttons_left"></div>
+		            	<!-- <div class="settings_buttons_left"></div>
 		                <div class="settings_buttons_mid">
 		                	<a id="s_save_btn" href="#">SAVE</a>
-		                </div><!--END SAVE BUTTON MID-->
-		                <div class="settings_buttons_right"></div>
+		                </div>
+		                <div class="settings_buttons_right"></div> -->
 
 		                <div class="settings_buttons_left"></div>
 		                <div class="settings_buttons_mid">
@@ -203,7 +204,7 @@
             
             	<div id="p_id">
             		<label for="p_id">Person ID</label>
-            		<input class="blue" type="text" name="p_id" id="p_id">
+            		<input class="blue" type="text" name="p_id" />
         		</div><!--END PERSON ID-->
                 
                 <div id="p_mf">
@@ -213,17 +214,17 @@
                 
             	<div id="p_fn">
                 	<label for="p_fn">First Name</label>
-                    <input class="blue" type="text" name="p_fn" id="p_fn">
+                    <input class="blue" type="text" name="p_fn" />
                 </div><!--END PERSON FIRST NAME-->
                 
                 <div id="p_ln">
                 	<label for="p_ln">Last Name</label>
-                    <input class="blue" type="text" name="p_ln" id="p_ln">
+                    <input class="blue" type="text" name="p_ln" />
                 </div><!--END PERSON LAST NAME-->
                 
                 <div id="p_dob">
                 	<label for="p_dob">Date Of Birth</label>
-                    <input class="blue" type="text" name="p_dob" id="p_dob">
+                    <input class="blue" type="text" name="p_dob" />
                 </div><!--END PERSON DATE OF BIRTH-->
             
             </div><!--END ROW 1-->
@@ -383,6 +384,11 @@
 
 
 </div><!--END CONTAINER-->
+
+
+<!--===========================================================================================-->
+<!--=====================================  JS TEMPLATES =======================================-->
+
 <script type="text/html" id="person-row-template">
 	<td class="p_id info_top_left"><%= p_id %></td>
 	<td class="p_fn info_top"><%= p_fn %></td>
@@ -421,8 +427,8 @@
         </div><!--END PERSON DATE OF BIRTH-->
     
     </div><!--END ROW 1-->
-
 </script>
+
 <script type="text/javascript" src="js/lib/jquery-1.5.2.min.js"></script>
 <script type="text/javascript" src="js/lib/underscore.js"></script>
 <script type="text/javascript" src="js/lib/backbone.js"></script>
@@ -430,6 +436,8 @@
 
 <script type="text/javascript" src="js/Setup.js"></script>
 <script type="text/javascript" src="js/models/Settings.js"></script>
+<script type="text/javascript" src="js/models/Setting.js"></script>
+<script type="text/javascript" src="js/models/SettingCollection.js"></script>
 <script type="text/javascript" src="js/models/Person.js"></script>
 <script type="text/javascript" src="js/models/PersonCollection.js"></script>
 <script type="text/javascript" src="js/views/TableRowView.js"></script>

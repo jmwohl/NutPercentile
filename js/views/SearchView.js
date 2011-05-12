@@ -27,6 +27,7 @@ App.Views.SearchView = Backbone.View.extend({
 		this._resultViews.push(view);
 		view.bind('select:search_result', personView.loadPerson);
 		view.bind('select:search_result', this.toggleSearch);
+		person.bind('change', this.render);
 		this.$(".search_results").append(view.render().el);
 	},
 	
