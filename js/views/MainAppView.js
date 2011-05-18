@@ -18,8 +18,11 @@ App.Views.MainAppView = Backbone.View.extend({
     // loading any preexisting todos that might be saved in *localStorage*.
     initialize: function() {
 		// bind 'this' to appropriate methods
-		_.bindAll(this, 'render', 'initializeSettings', 'resetSettings');
+		_.bindAll(this, 'render', 'updateViews', 'initSettings', 'resetSettings');
 		
+		
+		// Settings
+		this.initSettings();
 		
 		// set the collection to be the person collection
 		this.collection = new App.Collections.PersonCollection;
@@ -31,18 +34,7 @@ App.Views.MainAppView = Backbone.View.extend({
 			error: function() {
 				alert('failure');
 			}
-		});
-		
-		// collection				
-		// this.initializeSettings();
-		
-		// model
-		this.initSettings();
-		
-		
-		
-		// _.bindAll(this, 'addAll', 'addOne');
-		
+		});	
 		
 		window.mainMenuView = new App.Views.MainMenuView;
 		window.personView = new App.Views.PersonView({collection: this.collection});
@@ -52,8 +44,6 @@ App.Views.MainAppView = Backbone.View.extend({
 		// VIEW EVENT BINDINGS
 		mainMenuView.bind('toggle:search', searchView.toggleSearch);
 		mainMenuView.bind('init:new_person', personView.initAddPerson);
-		
-		// MODEL & COLLECTION EVENT BINDINGS
 		
     },
 
@@ -66,71 +56,23 @@ App.Views.MainAppView = Backbone.View.extend({
 		this.settings = new App.Models.Settings({id: "S101"});
 		this.settings.fetch({
 			success: function() {
-				alert('success');
+				// alert('success');
 			},
 			error: function() {
 				self.settings.save();
-				alert('error');
+				alert('Saving initial settings.');
 			}
 		});
-		this.settings.bind('change', this.render);
+		this.settings.bind('change', this.updateViews);
 		window.settingsView = new App.Views.SettingsView({model: this.settings});
-		this.render();
-	},
-
-	/*
-	*	Initialize settings COLLECTION
-	*	DEPRECATED
-	*
-	*/
-	initializeSettings: function() {
-		
-		// set up the settings model
-		this.settings = new App.Collections.SettingCollection;
-		
-		// set default ID;
-		var sID = "1000";
-		// this.settings = new App.Models.Settings;
-		var self = this;
-		
-		// get the stored settings
-		this.settings.fetch({
-			success: function() {
-				// check for first-time run, set defaults:
-				alert("sID: "+sID);
-				if(!self.settings.get(sID)) {
-					// Use a settings model — this allows for multiple settings presets feature, if desired
-					this.settingsModel = self.settings.create(new App.Models.Settings({id: sID}));
-					
-					// Potentially trigger a first-time run popup
-					alert('settings initialized');
-				} else {
-					alert('already initialized');
-					this.settingsModel = self.settings.get(sID);
-					alert("MainAppView settingsModel.s_facility: "+this.settingsModel.get('s_facility'));
-				}
-				
-				// Setup bindings on settings model
-				this.settingsModel.bind('change', self.render);
-				
-				window.settingsView = new App.Views.SettingsView({model: this.settingsModel});
-				
-				// Setup bindings on settings view
-				settingsView.bind('resetSettings', self.resetSettings);
-				
-				// RENDER MAIN APP (only updates facility name)
-				self.render();
-			},
-			error: function() {
-				alert("could NOT fetch settings");
-			}
-		});
+		this.updateViews();
 	},
 
     render: function() {
 		// update the clinic name
 		// alert("rendering main app view");
 		this.$('#header h1.facility').text(this.settings.get('s_facility'));
+		this.$('#stats_title').text(this.settings.get('s_reference'));
 		return this;
 	},
 	
@@ -139,6 +81,11 @@ App.Views.MainAppView = Backbone.View.extend({
 		// 		settingsView.model = this.settings.create(new App.Models.Settings);
 		// 		settingsView.model.bind('change', this.render);
 		settingsView.render();
+		this.render();
+	},
+	
+	updateViews: function() {
+		// alert("updating views");
 		this.render();
 	},
 	

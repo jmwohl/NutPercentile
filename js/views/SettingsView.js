@@ -12,15 +12,7 @@ App.Views.SettingsView = Backbone.View.extend({
 	
 	initialize: function(options) {
 		_.bindAll(this, 'render', 'setToDefaults');
-		// check for first-time run, set defaults:
-		// if(!this.collection.at(0)) {
-		// 			// Use a settings model — this allows for multiple settings presets feature, if desired
-		// 			this.model = this.collection.create(new App.Models.Settings);
-		// 			alert('settings initialized');
-		// 		} else {
-		// 			alert('already initialized');
-		// 			this.model = this.collection.at(0);
-		// 		}
+		
 		this.model.bind('change', this.render);
 		
 		this.render();
@@ -38,7 +30,6 @@ App.Views.SettingsView = Backbone.View.extend({
 					$(this).val(self.model.get($(this).attr('name')));
 				} else if($(this).attr('type') == 'checkbox') {
 					// checkboxes
-					// alert("CB");
 					if(self.model.get($(this).attr('name')) == 'on') {
 						$(this).attr('checked', 'checked');
 					} else {
@@ -53,7 +44,6 @@ App.Views.SettingsView = Backbone.View.extend({
 						$(this).removeAttr('checked');
 					}
 				}
-				// alert($(this).attr('name')+': '+$(this).val());
 			}
 		});
 		
@@ -72,7 +62,7 @@ App.Views.SettingsView = Backbone.View.extend({
 	},
 	
 	changedValue: function(e) {
-		alert(e.currentTarget.name+": "+e.currentTarget.value);
+		// alert(e.currentTarget.name+": "+e.currentTarget.value);
 		var data = {};
 		data[e.currentTarget.name]=e.currentTarget.value;
 		this.model.save(data, {

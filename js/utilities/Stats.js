@@ -1,0 +1,3 @@
+App.Utilities.Stats = {
+
+}

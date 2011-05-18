@@ -6,7 +6,7 @@ App.Models.Settings = Backbone.Model.extend({
 		s_language: "en",
 		s_weight_units: "Pounds",
 		s_height_units: "Inches",
-		s_reference: "cdc2000",
+		s_reference: "CDC 2000",
 		s_hide_head: "",
 		s_hide_arm: "",
 		s_results_display_std: "on",

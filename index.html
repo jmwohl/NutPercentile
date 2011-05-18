@@ -86,9 +86,9 @@
 		        	<div id="reference">
 		            	<label for="reference">Reference Data From</label>
 		                <select name="s_reference">
-		                	<option value="cdc2000" selected="selected">Centers for Disease Control (CDC 2000)</option>
-		                    <option value="un2010">United Nations Child Growth Standards (UN 2010)</option>
-		                    <option value="un_cdc">UN2010 before age 2 years; CDC Age 2-18 (Reccomended)</option>
+		                	<option value="CDC 2000" selected="selected">Centers for Disease Control (CDC 2000)</option>
+		                    <option value="UN 2010">United Nations Child Growth Standards (UN 2010)</option>
+		                    <option value="UN < Age 2, CDC Age 2-18">UN2010 before age 2 years; CDC Age 2-18 (Reccomended)</option>
 		                </select>
 		            </div><!--END REFERENCE-->
 
@@ -178,7 +178,7 @@
   				<th class="left" width="150px">ID</td>
   				<th width="150px">Last Name</td>
   				<th width="150px">First Name</td>
-  				<th>Other</td>
+  				<th>Date of Birth</td>
 			</tr>
 		</table>
     
@@ -238,7 +238,7 @@
         
         	<h3>MEASUREMENTS</h3>
         
-        	<h3><a href="#">New Measurement</a></h3>
+        	<h3><a href="#" id="new_measurement_btn">New Measurement</a></h3>
             
         	<div class="divider_horz_measurements"></div>
         	
@@ -249,9 +249,9 @@
             
             		<div id="m_date">	
                 		<label for="m_date">Date</label>
-                    	<a href="#" class="left"><</a>
+                    	<a href="#" class="left">&lt;</a>
                         <input class="blue" type="text" name="m_date" id="m_date">
-                        <a href="#" class="right">></a>
+                        <a href="#" class="right">&gt;</a>
                 	</div><!--END MEASUREMENT DATE-->
             
             	</div><!--END ROW 1-->
@@ -260,8 +260,8 @@
                 
                 	<div id="m_age">
                     	<label for="m_age">Age</label>
-                        <input class="orange" type="text" name="m_age" id="m_age" maxlength="3">
-                        <input class="orange" type="text" name="m_age2" id="m_age2" maxlength="2">
+                        <input class="orange" type="text" name="m_age_y" id="m_age" maxlength="3">
+                        <input class="orange" type="text" name="m_age_m" id="m_age2" maxlength="2">
                     </div><!--END MEASUREMENT AGE-->
                     
                     <div id="m_weight">
@@ -307,7 +307,7 @@
             <!--=========================  RIGHT COLUMN  ==========================-->
             <div id="col_right">
             
-            	<h3 class="stats">STATS: <em>Source Here</em></h3>
+            	<h3 class="stats">STATS: <em id="stats_title">Source Here</em></h3>
             
             	<div id="row_1">
             		<h4 class="percentile">Percentile</h4>
@@ -435,14 +435,16 @@
 <script type="text/javascript" src="js/lib/backbone-localstorage.js"></script>
 
 <script type="text/javascript" src="js/Setup.js"></script>
+<script type="text/javascript" src="js/utilities/WAM.js"></script>
 <script type="text/javascript" src="js/models/Settings.js"></script>
-<script type="text/javascript" src="js/models/Setting.js"></script>
-<script type="text/javascript" src="js/models/SettingCollection.js"></script>
 <script type="text/javascript" src="js/models/Person.js"></script>
 <script type="text/javascript" src="js/models/PersonCollection.js"></script>
+<script type="text/javascript" src="js/models/Measurement.js"></script>
+<script type="text/javascript" src="js/models/MeasurementCollection.js"></script>
 <script type="text/javascript" src="js/views/TableRowView.js"></script>
 <script type="text/javascript" src="js/views/MainMenuView.js"></script>
 <script type="text/javascript" src="js/views/SearchView.js"></script>
+<script type="text/javascript" src="js/views/MeasurementView.js"></script>
 <script type="text/javascript" src="js/views/PersonView.js"></script>
 <script type="text/javascript" src="js/views/PersonInfoView.js"></script>
 <script type="text/javascript" src="js/views/SettingsView.js"></script>

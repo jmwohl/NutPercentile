@@ -1,6 +1,7 @@
 var App = {
 	Models: {},
 	Collections: {},
+	Utilities: {},
     Views: {},
     Controllers: {},
     init: function() {
