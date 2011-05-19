@@ -7,7 +7,7 @@ App.Views.MeasurementView = Backbone.View.extend({
 	},
 	
 	initialize: function() {
-		_.bindAll(this, "render", "initMeasurement");
+		_.bindAll(this, "render", "initMeasurement", "calculateAge", "displayAge");
 	},
 	
 	/**
@@ -46,6 +46,21 @@ App.Views.MeasurementView = Backbone.View.extend({
 				}
 			});			
 		}
+		
+		// Setup UI stuff
+		var m_date = $('#m_date_field');
+		m_date.datepicker({
+			minDate: new Date(1910, 1, 1),
+			maxDate: +0,
+			yearRange: '1910:+0',
+			onSelect: function(dateText, inst) {
+				var m_date_ts = new Date(dateText).getTime();
+				// alert(dob_ts);
+				$(this).trigger('change');
+				self.model.save({m_date_ts: m_date_ts});
+				self.calculateAge();
+			}
+		});
 		return this;
 	},
 	
@@ -72,6 +87,7 @@ App.Views.MeasurementView = Backbone.View.extend({
 		// alert("MeasurementView: initMeasurement();");
 		this.$('#col_left input').removeAttr('disabled');
 		this.$('input').val("");
+		this.$('textarea').text("");
 		this.$('input').first().focus();
 		this.render();
 	},
@@ -80,7 +96,40 @@ App.Views.MeasurementView = Backbone.View.extend({
 	*	Reset the measurement view: remove model data, re-render.
 	*/
 	reset: function() {
-		alert("MeasurementView: reset();");
-	}
+		// alert("MeasurementView: reset();");
+	},
 	
+	/*
+	*	Calculate age based on DOB and measurement date
+	*/
+	calculateAge: function() {
+		var m_date_ts = parseInt(this.model.get('m_date_ts'));
+		var p_dob_ts = parseInt(personView.model.get('p_dob_ts'));
+		var m_age_ts = m_date_ts - p_dob_ts;
+		
+		// save age for this measurement as a timestamp
+		this.model.save({m_age_ts: m_age_ts});
+
+		this.displayAge();
+		// alert("Age in Months: "+ageInMonths);
+		
+		// this.model.save({m_age_y: ageInYears});
+	},
+	
+	displayAge: function() {
+		var m_age_ts = this.model.get('m_age_ts');
+		var one_year = 1000*60*60*24*365;
+		var ageInYears = Math.ceil(m_age_ts)/one_year;
+		// alert("Measurement TS: "+m_date_ts+", DOB TS: "+p_dob_ts);
+		// alert("Age in Years: "+ageInYears);
+		var ageInMonths = Math.round(ageInYears*12*10)/10;
+		// alert();
+		if(ageInMonths > 24) {
+			var dispYears = Math.floor(ageInYears);
+			var dispMonths = Math.round((ageInMonths % 12)*10)/10;
+		} else {
+			var dispMonths = ageInMonths;
+		}
+		this.model.save({m_age_m: dispMonths, m_age_y: dispYears});
+	}
 });

@@ -23,7 +23,7 @@ App.Views.PersonView = Backbone.View.extend({
 		this.measurements = new App.Collections.MeasurementCollection();
 		this.measurements.fetch({
 			success: function() {
-				alert('PersonView: measurement collection loaded');
+				// alert('PersonView: measurement collection loaded');
 			},
 			error: function() {
 				alert('PersonView: measurement collection NOT loaded');
@@ -49,7 +49,9 @@ App.Views.PersonView = Backbone.View.extend({
 			
 			this.personMeasurements = this.measurements.forPerson(person.id);
 			if(this.personMeasurements.length) {
-				this._measurementView.model = this.personMeasurements.last();
+				this._measurementView.collection = this.personMeasurements;
+				this._measurementView.model = _.last(this.personMeasurements);
+				this._measurementView.render();
 			}
 		} else {
 			alert("there was a problem loading the selected person's record");
@@ -61,14 +63,19 @@ App.Views.PersonView = Backbone.View.extend({
 	*/
 	initAddPerson: function(e) {
 		// alert("PersonView::initAddPerson");
-		this._personInfoView.model = mainAppView.collection.create(new App.Models.Person({p_id: "ID", p_sex: 1, p_fn: "First Name", p_ln: "Last Name", p_dob: "DOB"}));
+		var s_p_id = parseInt(mainAppView.settings.get('s_p_id'));
+		var new_s_p_id = ++s_p_id;
+		mainAppView.settings.save({s_p_id: new_s_p_id});
+		this.model = mainAppView.collection.create(new App.Models.Person({p_id: new_s_p_id, p_sex: "M", p_fn: "First Name", p_ln: "Last Name", p_dob: ""}));
+		this._personInfoView.model = this.model;
 		this._personInfoView.render();
-		this._measurementView.reset();
+		// this._measurementView.reset();
 	},
 	
 	addMeasurement: function() {
-t('PersonView [id: '+this.model.id+']: addMeasurement');
+		alert('PersonView [id: '+this.model.id+']: addMeasurement');
 		this._measurementView.model = this.measurements.create(new App.Models.Measurement({p_id: this.model.id}));
+		this._measurementView.model.bind("change", this._measurementView.render);
 		this._measurementView.initMeasurement();
 	},
 	

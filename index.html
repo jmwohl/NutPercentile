@@ -2,6 +2,9 @@
 <html>
 
 <head>
+
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
 <!--SCRIPTS HERE-->
 
 <link href="css/reset.css" rel="stylesheet" type="text/css" />
@@ -145,18 +148,19 @@
 		<div class="grad_button">
         	<div class="grad_left"></div>
             <div class="grad_mid">
-            	<a class="new_person_btn" href="#">NEW PERSON</a>
-            </div>
-            <div class="grad_right"></div>
-        </div>
-		
-        <div class="grad_button">
-        	<div class="grad_left"></div>
-            <div class="grad_mid">
             	<a class="search_btn" href="#">SEARCH PEOPLE</a>
             </div>
             <div class="grad_right"></div>
         </div>
+		
+		<div class="grad_button">
+        	<div class="grad_left"></div>
+            <div class="grad_mid">
+            	<a class="new_person_btn" href="#">NEW PERSON</a>
+            </div>
+            <div class="grad_right"></div>
+        </div>
+
 		<div class="clearfix"></div>
 	</div>
 
@@ -208,8 +212,8 @@
         		</div><!--END PERSON ID-->
                 
                 <div id="p_mf">
-                	<h4 class="mf">Male</h4> <input id="p_sex_m" name="p_sex" type="radio" value="1">
-                    <h4 class="mf">Female</h4> <input id="p_sex_f" name="p_sex" type="radio" value="2">
+                	<h4 class="mf">Male</h4> <input id="p_sex_m" name="p_sex" type="radio" value="M">
+                    <h4 class="mf">Female</h4> <input id="p_sex_f" name="p_sex" type="radio" value="F">
                 </div>
                 
             	<div id="p_fn">
@@ -250,7 +254,7 @@
             		<div id="m_date">	
                 		<label for="m_date">Date</label>
                     	<a href="#" class="left">&lt;</a>
-                        <input class="blue" type="text" name="m_date" id="m_date">
+                        <input class="blue" type="text" name="m_date" id="m_date_field">
                         <a href="#" class="right">&gt;</a>
                 	</div><!--END MEASUREMENT DATE-->
             
@@ -260,19 +264,22 @@
                 
                 	<div id="m_age">
                     	<label for="m_age">Age</label>
-                        <input class="orange" type="text" name="m_age_y" id="m_age" maxlength="3">
-                        <input class="orange" type="text" name="m_age_m" id="m_age2" maxlength="2">
+                        <input class="orange" type="text" name="m_age_y" id="m_age_y" maxlength="2"><div class="sublabel" id="m_age_label_y">yrs</div>
+						<input class="orange" type="text" name="m_age_m" id="m_age_m" maxlength="2"><div class="sublabel" id="m_age_label_m">mns</div>
                     </div><!--END MEASUREMENT AGE-->
                     
                     <div id="m_weight">
                     	<label for="m_weight">Weight</label>
-                        <input class="orange" type="text" name="m_weight" id="m_weight" maxlength="5">
-                        <input class="orange" type="text" name="m_weight2" id="m_weight2" maxlength="5">
+                        <input class="orange" type="text" name="m_weight_a" id="m_weight_a" maxlength="5">
+						<div class="sublabel" id="m_weight_label_a">lbs</div>
+                        <input class="orange" type="text" name="m_weight_b" id="m_weight_b" maxlength="5">
+						<div class="sublabel" id="m_weight_label_b">oz</div>
                     </div><!--END MEASUREMENT WEIGHT-->
                     
                     <div id="m_height">
                     	<label for="m_height">Height</label>
-                        <input class="orange" type="text" name="m_height" id="m_height" maxlength="5">
+                        <input class="orange" type="text" name="m_height" id="m_height_field" maxlength="5">
+						<div class="sublabel" id="m_height_label">in</div>
                     </div><!--END MEASUREMENT HEIGHT-->
                 
                 </div><!--END ROW 2-->
@@ -407,23 +414,23 @@
 		</div><!--END PERSON ID-->
         
         <div id="p_mf">
-        	<h4 class="mf">Male</h4> <input id="p_sex_m" <% if(p_sex != undefined && p_sex == "1") { %> checked="checked" <% } %> name="p_sex" type="radio" value="Male">
-            <h4 class="mf">Female</h4> <input id="p_sex_f" <% if(p_sex != undefined && p_sex == "2") { %> checked="checked" <% } %> name="p_sex" type="radio" value="Female">
+        	<h4 class="mf">Male</h4> <input id="p_sex_m" <% if(p_sex != undefined && p_sex == "M") { %> checked="checked" <% } %> name="p_sex" type="radio" value="M">
+            <h4 class="mf">Female</h4> <input id="p_sex_f" <% if(p_sex != undefined && p_sex == "F") { %> checked="checked" <% } %> name="p_sex" type="radio" value="F">
         </div>
         
     	<div id="p_fn">
         	<label for="p_fn">First Name</label>
-            <input class="blue" type="text" name="p_fn" id="p_fn" value="<%= p_fn %>">
+            <input class="blue" type="text" name="p_fn" id="p_fn_field" value="<%= p_fn %>">
         </div><!--END PERSON FIRST NAME-->
         
         <div id="p_ln">
         	<label for="p_ln">Last Name</label>
-            <input class="blue" type="text" name="p_ln" id="p_ln" value="<%= p_ln %>">
+            <input class="blue" type="text" name="p_ln" id="p_ln_field" value="<%= p_ln %>">
         </div><!--END PERSON LAST NAME-->
         
         <div id="p_dob">
         	<label for="p_dob">Date Of Birth</label>
-            <input class="blue" type="text" name="p_dob" id="p_dob" value="<%= p_dob %>">
+            <input class="blue" type="text" name="p_dob" id="p_dob_field" value="<%= p_dob %>">
         </div><!--END PERSON DATE OF BIRTH-->
     
     </div><!--END ROW 1-->
@@ -433,6 +440,9 @@
 <script type="text/javascript" src="js/lib/underscore.js"></script>
 <script type="text/javascript" src="js/lib/backbone.js"></script>
 <script type="text/javascript" src="js/lib/backbone-localstorage.js"></script>
+<script type="text/javascript" src="js/lib/jquery-ui-1.8.12.custom.min.js"></script>
+<script type="text/javascript" src="js/lib/i18n/jquery.ui.datepicker-fr.js"></script>
+<script type="text/javascript" src="js/lib/i18n/jquery.ui.datepicker-es.js"></script>
 
 <script type="text/javascript" src="js/Setup.js"></script>
 <script type="text/javascript" src="js/utilities/WAM.js"></script>

@@ -12,7 +12,8 @@ App.Models.Settings = Backbone.Model.extend({
 		s_results_display_std: "on",
 		s_results_display_z: "",
 		s_results_display_stat: "",
-		s_screen_display: "Standard"
+		s_screen_display: "Standard",
+		s_p_id: "1000",
 	},
 	
 	initialize: function(options) {

@@ -43,6 +43,7 @@ App.Views.MainAppView = Backbone.View.extend({
 		
 		// VIEW EVENT BINDINGS
 		mainMenuView.bind('toggle:search', searchView.toggleSearch);
+		// mainMenuView.bind('init:new_person', searchView.toggleSearch);
 		mainMenuView.bind('init:new_person', personView.initAddPerson);
 		
     },
@@ -65,6 +66,15 @@ App.Views.MainAppView = Backbone.View.extend({
 		});
 		this.settings.bind('change', this.updateViews);
 		window.settingsView = new App.Views.SettingsView({model: this.settings});
+		
+		// Setup i18n UI
+		// @TODO This will likely need to be adjusted when the full i18n is implemented
+		var lang = this.settings.get('s_language');
+		if(lang == "en") {
+			lang = "";
+		}
+		$.datepicker.setDefaults($.datepicker.regional[lang]);
+		
 		this.updateViews();
 	},
 
@@ -98,4 +108,5 @@ App.Views.MainAppView = Backbone.View.extend({
 	toggleSettings: function() {
 		this.$('#settings').slideToggle();
 	}
-  });
+
+});
