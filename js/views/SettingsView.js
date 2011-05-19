@@ -82,9 +82,8 @@ App.Views.SettingsView = Backbone.View.extend({
 	
 	setToDefaults: function(e) {
 		e.preventDefault();
-		alert(this.model.defaults.s_facility);
+		confirm('Are you sure you want to reset the settings?');
 		this.model.resetToDefaults();
-		//this.render();
 	}
 	
 });

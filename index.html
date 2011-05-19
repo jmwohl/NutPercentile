@@ -72,14 +72,14 @@
 
 		            <div id="sm_weight"><!--SM means "Settings Measurement"-->
 		            	<label for="sm_weight">Measurement Units For Weight</label>
-		          		<input id="sm_weight_k" name="s_weight_units" type="radio" value="Kilograms" /> <h4 class="sm_weight_k">Kilograms</h4>
-		                <input id="sm_weight_p" name="s_weight_units" type="radio" value="Pounds" /> <h4 class="sm_weight_p">Pounds</h4>							
+		          		<input id="sm_weight_k" name="s_weight_units" type="radio" value="kg" /> <h4 class="sm_weight_k">Kilograms</h4>
+		                <input id="sm_weight_p" name="s_weight_units" type="radio" value="lb" /> <h4 class="sm_weight_p">Pounds</h4>							
 		            </div><!--END SETTINGS MEASUREMENT WEIGHT-->
 
 		            <div id="sm_units">
 		            	<label for="sm_units">Linear Measurement Units</label>
-		                <input id="sm_units_c" name="s_height_units" type="radio" value="Centimeters" /> <h4 class="sm_units_c">Centimeters</h4>
-		                <input id="sm_units_i" name="s_height_units" type="radio" value="Inches" /> <h4 class="sm_units_i">Inches</h4>
+		                <input id="sm_units_c" name="s_height_units" type="radio" value="cm" /> <h4 class="sm_units_c">Centimeters</h4>
+		                <input id="sm_units_i" name="s_height_units" type="radio" value="in" /> <h4 class="sm_units_i">Inches</h4>
 		            </div>
 
 		        </div><!--END LEFT COLUMN-->
@@ -272,8 +272,8 @@
                     	<label for="m_weight">Weight</label>
                         <input class="orange" type="text" name="m_weight_a" id="m_weight_a" maxlength="5">
 						<div class="sublabel" id="m_weight_label_a">lbs</div>
-                        <input class="orange" type="text" name="m_weight_b" id="m_weight_b" maxlength="5">
-						<div class="sublabel" id="m_weight_label_b">oz</div>
+                        <!-- <input class="orange" type="text" name="m_weight_b" id="m_weight_b" maxlength="5">
+                        						<div class="sublabel" id="m_weight_label_b">oz</div> -->
                     </div><!--END MEASUREMENT WEIGHT-->
                     
                     <div id="m_height">
@@ -297,14 +297,17 @@
                 
                 	<div id="m_head">
                     	<label for="m_head">Head</label>
-                        <input class="orange" type="text" name="m_head" id="m_head" maxlength="8">
+                        <input class="orange" type="text" name="m_head" id="m_head_field" maxlength="8">
                     </div><!--END MEASUREMENT HEAD-->
                     
                     <div id="m_arm">
                     	<label for="m_arm">Arm (MUAC)</label>
-                        <input class="orange" type="text" name="m_arm" id="m_arm" maxlength="8">
+                        <input class="orange" type="text" name="m_arm" id="m_arm_field" maxlength="8">
                     </div><!--END MEASUREMENT ARM-->
                 
+					<div id="calculate">
+						<a href="#" id="calc_btn">Caculate</a>
+					</div>
                 </div><!--END ROW 4-->
             
            	</div><!--END LEFT COLUMN-->
@@ -324,31 +327,31 @@
                 
                 <div id="row_2">
                 	<label for="height_age">Height For Age:</label>
-                    <input class="orange" type="text" name="height_age" id="height_age_percentile">
-                    <input class="orange" type="text" name="height_age" id="height_age_z_score">
-                    <h4 class="flag_white">Ok</h4>
+                    <input class="orange" type="text" name="height_age_p" id="height_age_percentile">
+                    <input class="orange" type="text" name="height_age_z" id="height_age_z_score">
+                    <h4 id="h4a_flag" class='n'></h4>
                 </div><!--END ROW 2-->
                 
                 <div id="row_3">
                 	<label for="weight_age">Weight For Age:</label>
-                    <input class="orange" type="text" name="weight_age" id="weight_age_percentile">
-                    <input class="orange" type="text" name="weight_age" id="weight_age_z_score">
-                    <h4 class="flag_green">Ok</h4>
+                    <input class="orange" type="text" name="weight_age_p" id="weight_age_percentile">
+                    <input class="orange" type="text" name="weight_age_z" id="weight_age_z_score">
+                    <h4 id="w4a_flag" class='n'></h4>
                 </div><!--END ROW 3-->
                 
                 <div id="row_4">
                 	<label for="weight_height">Weight For Height:</label>
-                    <input class="orange" type="text" name="weight_height" id="weight_height_percentile">
-                    <input class="orange" type="text" name="weight_height" id="weight_height_z_score">
-                    <h4 class="flag_red">Low</h4>
+                    <input class="orange" type="text" name="weight_height_p" id="weight_height_percentile">
+                    <input class="orange" type="text" name="weight_height_z" id="weight_height_z_score">
+                    <h4 id="w4h_flag" class='n'></h4>
                 </div><!--END ROW 4-->
                 
                 <div id="row_5">
                 	<label for="bmi">BMI:</label>
                     <input class="orange" type="text" name="bmi" id="bmi">
-                    <input class="orange" type="text" name="bmi_percentile" id="bmi_percentile">
-                    <input class="orange" type="text" name="bmi_z_score" id="bmi_z_score">
-                    <h4 class="flag_white">Ok</h4>
+                    <input class="orange" type="text" name="bmi_p" id="bmi_percentile">
+                    <input class="orange" type="text" name="bmi_z" id="bmi_z_score">
+                    <h4 id="b4a_flag" class='n'></h4>
                 </div><!--END ROW 5-->
                 
                 <div id="row_6">

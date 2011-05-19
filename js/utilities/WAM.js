@@ -69,9 +69,12 @@ App.Utilities.WAM = {
 		if ((months >= 24) && (months <=60)) {
 			// XMLText+="<Wt4Ht>"+this.WTHEIGHT(sex,months,kg,cm)+"</Wt4Ht>";
 			resp.wt4ht = this.WTHEIGHT(sex, months, kg, cm);
+			resp.ht4age = this.HEIGHTAGE(sex, months, kg, cm);
 		}
 		if ((months >= 24) && (months < 241)) {
 			// XMLText+="<BMI4Age>"+this.BMIAGE(sex,months,kg,cm)+"</BMI4Age>";
+			resp.wt4ht = this.WTHEIGHT(sex, months, kg, cm);
+			resp.ht4age = this.HEIGHTAGE(sex, months, kg, cm);
 			resp.bmi4age = this.BMIAGE(sex, months, kg, cm);
 		}
 		//XMLText+="<MUAC4Age>"+ "MUAC for Age to be added later" +"</MUAC4Age>";
@@ -87,8 +90,11 @@ App.Utilities.WAM = {
 	/*
 	*	Returns zscore, text category, and percentile value from LMSArray and numValue.  
 	*	Format is determined by the property called returnFormat.
+	*
+	*	@TODO: Refactor this to return an object of the z-score, percentile, flag 
 	*/
 	resultStr: function(LMSArray, numValue) {
+		var resp = {};
 		if (typeof(LMSArray) != "undefined") {
 			var L=LMSArray[0]
 			var M=LMSArray[1]
@@ -104,10 +110,11 @@ App.Utilities.WAM = {
 				//This is the log to the base e function, despite the notation
 				ZScore = Math.log(numValue/M)/S;
 			}
-
+			resp.zscore = ZScore.toFixed(3);
+			
 			percentile=this.PCTILEFROMZ(ZScore).toFixed(3);
-			//if (percentile<0.001) 
-			//   {percentile="<0.001"}
+			resp.percentile = percentile;
+			
 			outputStr=outputStr.replace(/Z/,ZScore.toFixed(3));
 			outputStr=outputStr.replace(/P/, percentile);
 			if ((percentile >=0) && (percentile<=5)) {
@@ -122,10 +129,13 @@ App.Utilities.WAM = {
 				category=this.strcat[5];
 			}
 			outputStr=outputStr.replace(/text/i,category);
-			return outputStr //+ M;  
+			resp.flag = category;
+			return resp;
+			// return outputStr //+ M;  
 
 		} else {
-			return "No reference data available.";
+			return resp;
+			// return "No reference data available.";
 		}
 	},
 	
@@ -347,7 +357,8 @@ App.Utilities.WAM = {
 		} else {
 			result=this.resultStr(M[agemo],KILOS); //If MF is not specified, assumes M
 		}
-		return this.t("WtAgeInf")+": " + result;
+		return result;
+		// return this.t("WtAgeInf")+": " + result;
 	},
 	
 	/*
@@ -444,8 +455,9 @@ App.Utilities.WAM = {
 		    result=this.resultStr(F[agemo],CM);
 		} else {
 			result=this.resultStr(M[agemo],CM); //If MF is not specified, assumes M
-		}   
-		return this.t("LenAgeInf")+": " +result;
+		}
+		return result;
+		// return this.t("LenAgeInf")+": " +result;
 	},
 	
 	/*
@@ -588,8 +600,9 @@ App.Utilities.WAM = {
 		    result=this.resultStr(F[cm],KILOS);
 		} else {
 			result=this.resultStr(M[cm],KILOS); //If MF is not specified, assumes M
-		}   
-		return this.t("WtLenInf")+": "+ result;
+		}
+		return result;
+		// return this.t("WtLenInf")+": "+ result;
 	},
 	
 	/*
@@ -599,7 +612,7 @@ App.Utilities.WAM = {
 		if (!(AGEMO>=0 && KILOS>0 && CM>0)) {
 			return "";
 		}
-		var BMIValue=BMI(KILOS,CM);
+		var BMIValue=this.BMI(KILOS,CM);
 		var result="";
 
 		if ((AGEMO<24) || (AGEMO>240)) {
@@ -1050,11 +1063,12 @@ App.Utilities.WAM = {
 		F[241]=[-2.34495843, 21.716999342, 0.152974718];
 
 		if (MF=="F") {
-			result=this.t("BMIAge")+": " + this.resultStr(F[agemo],BMIValue);
+			result=this.resultStr(F[agemo],BMIValue);
 		} else {
-			result=this.t("BMIAge")+": " + this.resultStr(M[agemo],BMIValue); //If MF is not specified, assumes M
-		} 
+			result=this.resultStr(M[agemo],BMIValue); //If MF is not specified, assumes M
+		}
 		return result;
+		return this.t("BMIAge")+": " + result;
 	},
 	
 	/*
@@ -1164,7 +1178,8 @@ App.Utilities.WAM = {
 		} else {
 			result=this.resultStr(M[cm],KILOS); //If MF is not specified, assumes M
 		}
-		return this.t("WtHeight")+": "+ result;
+		return result;
+		// return this.t("WtHeight")+": "+ result;
 	},
 
 	/*
@@ -1618,7 +1633,8 @@ App.Utilities.WAM = {
 		} else {
 			result=this.resultStr(M[agemo],KILOS); //If MF is not specified, assumes M
 		}
-		return this.t("WtAge")+": " + result;
+		return result;
+		// return this.t("WtAge")+": " + result;
 	},
 	
 	/*
@@ -2074,7 +2090,8 @@ App.Utilities.WAM = {
 		} else {
 			result=this.resultStr(M[agemo],CM); //If MF is not specified, assumes M
 		}
-		return this.t("HtAge")+": " + result;
+		return result;
+		// return this.t("HtAge")+": " + result;
 	},
 	
 	/*
@@ -2175,7 +2192,8 @@ App.Utilities.WAM = {
 		} else {
 			result=this.resultStr(M[agemo],HEADCM); //If MF is not specified, assumes M
 		}
-		return "HeadCM: " + result;
+		return result;
+		// return "HeadCM: " + result;
 	},
 	
 	/*

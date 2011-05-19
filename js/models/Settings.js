@@ -4,8 +4,8 @@ App.Models.Settings = Backbone.Model.extend({
 	defaults: {
 		s_facility: "My Clinic Name",
 		s_language: "en",
-		s_weight_units: "Pounds",
-		s_height_units: "Inches",
+		s_weight_units: "kg",
+		s_height_units: "cm",
 		s_reference: "CDC 2000",
 		s_hide_head: "",
 		s_hide_arm: "",

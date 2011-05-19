@@ -175,7 +175,7 @@ h4.flag_title {
 	margin-left: 50px;
 }
 
-h4.flag_white {
+h4.n {
 	color: #FFF;
 	margin-left: 30px;
 	background-color: #222;
@@ -183,16 +183,16 @@ h4.flag_white {
 	border: 1px solid black;
 }
 
-h4.flag_green {
-	color: #9cffa3;
+h4.vh {
+	color: #ff4343;
 	margin-left: 30px;
 	background-color: #222;
 	padding: 5px;
 	border: 1px solid black;
 }
 
-h4.flag_red {
-	color: #ff4343;
+h4.l, h4.h {
+	color: #ff9955;
 	margin-left: 30px;
 	background-color: #222;
 	padding: 5px;

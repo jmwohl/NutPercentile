@@ -3,11 +3,14 @@ App.Views.MeasurementView = Backbone.View.extend({
 	
 	events: {
 		"click #new_measurement_btn": "addMeasurement",
-		"change input": "changedValue"
+		"change input": "changedValue",
+		"click .left": "prevMeas",
+		"click .right": "nextMeas",
+		"click #calc_btn": "doStats"
 	},
 	
 	initialize: function() {
-		_.bindAll(this, "render", "initMeasurement", "calculateAge", "displayAge");
+		_.bindAll(this, "render", "initMeasurement", "calculateAge", "displayAge", "nextMeas", "prevMeas", "doStats", "renderStats");
 	},
 	
 	/**
@@ -64,6 +67,32 @@ App.Views.MeasurementView = Backbone.View.extend({
 		return this;
 	},
 	
+	/*
+	*	Render calculated stats on screen.
+	*/
+	renderStats: function(stats) {
+		// ["?", "l", "n", "h", "vh", " "]
+		
+		//height4age
+		if(stats.ht4age.length) {
+			this.$('#height_age_percentile').val(stats.ht4age.percentile);
+			this.$('#height_age_z_score').val(stats.ht4age.zscore);
+			this.$('#h4a_flag').text(stats.ht4age.flag);
+		}
+		//weight4age
+		if(stats.wt4age.length) {
+			this.$('#weight_age_percentile').val(stats.wt4age.percentile);
+			this.$('#weight_age_z_score').val(stats.wt4age.zscore);
+			this.$('#w4a_flag').text(stats.wt4age.flag);
+		}
+		//weight4height
+		if(stats.wt4ht.length) {
+			this.$('#weight_height_percentile').val(stats.wt4ht.percentile);
+			this.$('#weight_height_z_score').val(stats.wt4ht.zscore);
+			this.$('#w4h_flag').text(stats.wt4ht.flag);
+		}
+	},
+	
 	changedValue: function(e) {
 		var data = {};
 		data[e.currentTarget.name]=e.currentTarget.value;
@@ -93,6 +122,41 @@ App.Views.MeasurementView = Backbone.View.extend({
 	},
 	
 	/*
+	*	Load next measurement for the current Person
+	*/
+	nextMeas: function(e) {
+		e.preventDefault();
+		var numMeasurements = this.collection.length;
+		this.curIndex = _.indexOf(this.collection, this.model);
+		if(this.curIndex < (numMeasurements-1)) {
+			var newIndex = ++this.curIndex;
+			this.model = this.collection[newIndex];
+			this.render();
+		} else {
+			alert("This is the most recent measurement.");
+		}
+		
+	},
+	
+	/*
+	*	Load previous measurement for the current Person
+	*/
+	prevMeas: function(e) {
+		e.preventDefault();
+		var numMeasurements = this.collection.length;
+		this.curIndex = _.indexOf(this.collection, this.model);
+		if(this.curIndex > 0) {
+			var newIndex = --this.curIndex;
+			this.model = this.collection[newIndex];
+			this.render();
+		} else {
+			alert('This is the first measurement');
+		}
+		
+		// alert("Current Index: "+this.curIndex);
+	},
+	
+	/*
 	*	Reset the measurement view: remove model data, re-render.
 	*/
 	reset: function() {
@@ -116,6 +180,9 @@ App.Views.MeasurementView = Backbone.View.extend({
 		// this.model.save({m_age_y: ageInYears});
 	},
 	
+	/*
+	*	Create and store the years/months for age display
+	*/
 	displayAge: function() {
 		var m_age_ts = this.model.get('m_age_ts');
 		var one_year = 1000*60*60*24*365;
@@ -131,5 +198,24 @@ App.Views.MeasurementView = Backbone.View.extend({
 			var dispMonths = ageInMonths;
 		}
 		this.model.save({m_age_m: dispMonths, m_age_y: dispYears});
+	},
+	
+	/*
+	*	Perform statistics calculations
+	*/
+	doStats: function(e) {
+		e.preventDefault();
+		var MF = personView.model.get("p_sex");
+		var m_age_ts = this.model.get('m_age_ts');
+		var one_year = 1000*60*60*24*365;
+		var ageInYears = Math.ceil(m_age_ts)/one_year;
+		var ageInMonths = Math.round(ageInYears*12*10)/10;
+		var kg = this.model.get('m_weight_a');
+		var cm = this.model.get('m_height');
+		var head_cm = this.model.get('m_head');
+		var arm_cm = this.model.get('m_arm');
+		var stats = App.Utilities.WAM.calcWAM( 1, "F", ageInMonths, kg, cm, head_cm, arm_cm );
+		this.renderStats(stats);
 	}
+	
 });

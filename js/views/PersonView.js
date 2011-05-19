@@ -47,11 +47,16 @@ App.Views.PersonView = Backbone.View.extend({
 			this._personInfoView.model = person;
 			this._personInfoView.render();
 			
+			// @TODO: Maybe this should be sorted by date here?
+			// Or perhaps the MeasurementCollection should maintain a sort order?
+			// Or the forPerson method of the collection should perform the sort?
 			this.personMeasurements = this.measurements.forPerson(person.id);
 			if(this.personMeasurements.length) {
 				this._measurementView.collection = this.personMeasurements;
 				this._measurementView.model = _.last(this.personMeasurements);
 				this._measurementView.render();
+			} else {
+				this._measurementView.collection = new Array();
 			}
 		} else {
 			alert("there was a problem loading the selected person's record");
@@ -72,9 +77,20 @@ App.Views.PersonView = Backbone.View.extend({
 		// this._measurementView.reset();
 	},
 	
+	/*
+	*	Add a new Measurement model to the measurements collection.
+	*	Updates the Measurement view's collection and model.
+	*/
 	addMeasurement: function() {
 		alert('PersonView [id: '+this.model.id+']: addMeasurement');
-		this._measurementView.model = this.measurements.create(new App.Models.Measurement({p_id: this.model.id}));
+		var now_ts = new Date().getTime();
+		this._measurementView.model = this.measurements.create(new App.Models.Measurement({p_id: this.model.id, m_created_ts: now_ts, m_date_ts: now_ts}));
+		// var insertIndex = _.sortedIndex(this._measurementView.collection, this._measurementView.model, function(meas) {
+		// 	return meas.get('m_age_ts');
+		// });
+		// alert("Insert Index: "+insertIndex);
+		this.personMeasurements = this.measurements.forPerson(this.model.id);
+		this._measurementView.collection = this.personMeasurements;
 		this._measurementView.model.bind("change", this._measurementView.render);
 		this._measurementView.initMeasurement();
 	},

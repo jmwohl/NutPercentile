@@ -18,7 +18,7 @@ App.Views.MainAppView = Backbone.View.extend({
     // loading any preexisting todos that might be saved in *localStorage*.
     initialize: function() {
 		// bind 'this' to appropriate methods
-		_.bindAll(this, 'render', 'updateViews', 'initSettings', 'resetSettings');
+		_.bindAll(this, 'render', 'initSettings', 'resetSettings');
 		
 		
 		// Settings
@@ -64,7 +64,7 @@ App.Views.MainAppView = Backbone.View.extend({
 				alert('Saving initial settings.');
 			}
 		});
-		this.settings.bind('change', this.updateViews);
+		this.settings.bind('change', this.render);
 		window.settingsView = new App.Views.SettingsView({model: this.settings});
 		
 		// Setup i18n UI
@@ -75,7 +75,7 @@ App.Views.MainAppView = Backbone.View.extend({
 		}
 		$.datepicker.setDefaults($.datepicker.regional[lang]);
 		
-		this.updateViews();
+		this.render();
 	},
 
     render: function() {
@@ -83,6 +83,8 @@ App.Views.MainAppView = Backbone.View.extend({
 		// alert("rendering main app view");
 		this.$('#header h1.facility').text(this.settings.get('s_facility'));
 		this.$('#stats_title').text(this.settings.get('s_reference'));
+		this.$('#m_weight_label_a').text(this.settings.get('s_weight_units'));
+		this.$('#m_height_label').text(this.settings.get('s_height_units'));
 		return this;
 	},
 	
@@ -91,11 +93,6 @@ App.Views.MainAppView = Backbone.View.extend({
 		// 		settingsView.model = this.settings.create(new App.Models.Settings);
 		// 		settingsView.model.bind('change', this.render);
 		settingsView.render();
-		this.render();
-	},
-	
-	updateViews: function() {
-		// alert("updating views");
 		this.render();
 	},
 	
