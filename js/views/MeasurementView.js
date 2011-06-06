@@ -15,7 +15,6 @@ App.Views.MeasurementView = Backbone.View.extend({
 	
 	/**
 	*	Render the measurement and stats view
-	*
 	*/
 	render: function(settings) {
 		if(settings) {
@@ -74,19 +73,19 @@ App.Views.MeasurementView = Backbone.View.extend({
 		// ["?", "l", "n", "h", "vh", " "]
 		
 		//height4age
-		if(stats.ht4age.length) {
+		if(stats.ht4age != undefined) {
 			this.$('#height_age_percentile').val(stats.ht4age.percentile);
 			this.$('#height_age_z_score').val(stats.ht4age.zscore);
 			this.$('#h4a_flag').text(stats.ht4age.flag);
 		}
 		//weight4age
-		if(stats.wt4age.length) {
+		if(stats.wt4age != undefined) {
 			this.$('#weight_age_percentile').val(stats.wt4age.percentile);
 			this.$('#weight_age_z_score').val(stats.wt4age.zscore);
 			this.$('#w4a_flag').text(stats.wt4age.flag);
 		}
 		//weight4height
-		if(stats.wt4ht.length) {
+		if(stats.wt4ht != undefined) {
 			this.$('#weight_height_percentile').val(stats.wt4ht.percentile);
 			this.$('#weight_height_z_score').val(stats.wt4ht.zscore);
 			this.$('#w4h_flag').text(stats.wt4ht.flag);
@@ -132,6 +131,7 @@ App.Views.MeasurementView = Backbone.View.extend({
 			var newIndex = ++this.curIndex;
 			this.model = this.collection[newIndex];
 			this.render();
+			this.doStats();
 		} else {
 			alert("This is the most recent measurement.");
 		}
@@ -149,6 +149,7 @@ App.Views.MeasurementView = Backbone.View.extend({
 			var newIndex = --this.curIndex;
 			this.model = this.collection[newIndex];
 			this.render();
+			this.doStats();
 		} else {
 			alert('This is the first measurement');
 		}
@@ -204,13 +205,15 @@ App.Views.MeasurementView = Backbone.View.extend({
 	*	Perform statistics calculations
 	*/
 	doStats: function(e) {
-		e.preventDefault();
+		if(e) {
+			e.preventDefault();
+		}
 		var MF = personView.model.get("p_sex");
 		var m_age_ts = this.model.get('m_age_ts');
 		var one_year = 1000*60*60*24*365;
 		var ageInYears = Math.ceil(m_age_ts)/one_year;
 		var ageInMonths = Math.round(ageInYears*12*10)/10;
-		var kg = this.model.get('m_weight_a');
+		var kg = this.model.get('m_weight');
 		var cm = this.model.get('m_height');
 		var head_cm = this.model.get('m_head');
 		var arm_cm = this.model.get('m_arm');

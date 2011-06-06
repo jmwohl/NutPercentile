@@ -548,6 +548,7 @@ table.search_results {
 	width: 916px;
 	padding: 10px;
 	margin-bottom: 10px;
+	position: relative;
 }
 
 #person #info #row_1 {
@@ -588,7 +589,7 @@ table.search_results {
 	top: -12px;
 /*	border: 1px solid #6F3; */
 	margin-left: 10px;
-	width: 150px;
+	width: 120px;
 }
 
 #p_mf input {
@@ -608,7 +609,7 @@ table.search_results {
 	left: -1px;
 /*	border: 1px solid #6F3; */
 	margin-left: 10px;
-	width: 175px;
+	width: 155px;
 }
 
 #p_fn label {
@@ -633,7 +634,7 @@ table.search_results {
 	left: -1px;
 /*	border: 1px solid #6F3; */
 	margin-left: 10px;
-	width: 175px;
+	width: 155px;
 }
 
 #p_ln label {
@@ -658,7 +659,7 @@ table.search_results {
 	left: -1px;
 /*	border: 1px solid #6F3; */
 	margin-left: 10px;
-	width: 175px;
+	width: 155px;
 }
 
 #p_dob label {
@@ -673,6 +674,13 @@ table.search_results {
 	border: 1px solid black;
 	position: relative;
 	left: -9px;
+}
+
+#p_save {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	width: 100px;
 }
 
 /*===========================================================================*/

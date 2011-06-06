@@ -41,13 +41,11 @@ App.Views.SearchView = Backbone.View.extend({
 		this.results = this.collection.filter(function(person) {
 			
 			var rx = new RegExp(q, "i");
-			var ln = person.get("p_ln");
-			var id = person.get("p_id");
+			var ln = String(person.get("p_ln"));
+			var id = String(person.get("p_id"));
+			// alert("ln: "+ln+", id: "+id);
 			if(!ln || !id) return false;
 			return (ln.search(rx) != -1 || id.search(rx) != -1);
-			if(ln.search(rx) != -1 || id.search(rx) != -1) {
-				return true;
-			}
 		});
 		this.render();
 	},

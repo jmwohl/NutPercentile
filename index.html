@@ -117,11 +117,11 @@
 
 		        	<div id="settings_buttons">
 
-		            	<!-- <div class="settings_buttons_left"></div>
-		                <div class="settings_buttons_mid">
+		            	<div class="settings_buttons_left"></div>
+						<div class="settings_buttons_mid">
 		                	<a id="s_save_btn" href="#">SAVE</a>
-		                </div>
-		                <div class="settings_buttons_right"></div> -->
+						</div>
+						<div class="settings_buttons_right"></div>
 
 		                <div class="settings_buttons_left"></div>
 		                <div class="settings_buttons_mid">
@@ -192,10 +192,6 @@
 <!--=======================================  PERSON  ==================================================-->
 
 	<div id="person">
-    
-    	<h1 class="title">Person</h1>
-        
-        <div class="divider_horz_boxed"></div>
         
         <!--===========================================================================================-->
         <!--=====================================  PERSON INFORMATION =================================-->
@@ -204,34 +200,9 @@
         
         	<h3>PERSONAL INFORMATION</h3>
             
-            <div id="row_1">
             
-            	<div id="p_id">
-            		<label for="p_id">Person ID</label>
-            		<input class="blue" type="text" name="p_id" />
-        		</div><!--END PERSON ID-->
-                
-                <div id="p_mf">
-                	<h4 class="mf">Male</h4> <input id="p_sex_m" name="p_sex" type="radio" value="M">
-                    <h4 class="mf">Female</h4> <input id="p_sex_f" name="p_sex" type="radio" value="F">
-                </div>
-                
-            	<div id="p_fn">
-                	<label for="p_fn">First Name</label>
-                    <input class="blue" type="text" name="p_fn" />
-                </div><!--END PERSON FIRST NAME-->
-                
-                <div id="p_ln">
-                	<label for="p_ln">Last Name</label>
-                    <input class="blue" type="text" name="p_ln" />
-                </div><!--END PERSON LAST NAME-->
-                
-                <div id="p_dob">
-                	<label for="p_dob">Date Of Birth</label>
-                    <input class="blue" type="text" name="p_dob" />
-                </div><!--END PERSON DATE OF BIRTH-->
-            
-            </div><!--END ROW 1-->
+
+
             
         </div><!--END PERSON INFO-->
 
@@ -265,12 +236,12 @@
                 	<div id="m_age">
                     	<label for="m_age">Age</label>
                         <input class="orange" type="text" name="m_age_y" id="m_age_y" maxlength="2"><div class="sublabel" id="m_age_label_y">yrs</div>
-						<input class="orange" type="text" name="m_age_m" id="m_age_m" maxlength="2"><div class="sublabel" id="m_age_label_m">mns</div>
+						<input class="orange" type="text" name="m_age_m" id="m_age_m" maxlength="2"><div class="sublabel" id="m_age_label_m">mos</div>
                     </div><!--END MEASUREMENT AGE-->
                     
                     <div id="m_weight">
                     	<label for="m_weight">Weight</label>
-                        <input class="orange" type="text" name="m_weight_a" id="m_weight_a" maxlength="5">
+                        <input class="orange" type="text" name="m_weight" id="m_weight_field" maxlength="5">
 						<div class="sublabel" id="m_weight_label_a">lbs</div>
                         <!-- <input class="orange" type="text" name="m_weight_b" id="m_weight_b" maxlength="5">
                         						<div class="sublabel" id="m_weight_label_b">oz</div> -->
@@ -383,10 +354,18 @@
         	<h3>GROWTH CHART</h3>
             
             <h3><a href="#">HIDE</a></h3>
-            
-            <img src="images/bg_blue.jpg" width="914" height="200" alt="growth_chart">
         
-        
+        	<table class="search_results" width="100%" border="1" cellpadding="0" cellspacing="0">
+				<tr>
+	  				<th class="left">Date</td>
+	  				<th>Age</td>
+	  				<th>Weight</td>
+					<th>Height</td>
+	  				<th>Head</td>
+					<th>Arm</td>
+				</tr>
+			</table>
+			
         </div><!--END GROWTH CHART-->
         
     </div><!--END PERSON-->
@@ -406,6 +385,15 @@
 	<td class="p_dob info_top"><%= p_dob %></td>
 </script>
 
+<script type="text/html" id="measurement-row-template">
+	<td class="m_date info_top_left"><%= m_date %></td>
+	<td class="m_age info_top"><%= m_age %></td>
+	<td class="m_weight info_top"><%= m_weight %></td>
+	<td class="m_height info_top"><%= m_height %></td>
+	<td class="m_head info_top"><%= m_head %></td>
+	<td class="m_arm info_top"><%= m_arm %></td>
+</script>
+
 <script type="text/html" id="person-info-template">
 	<h3>PERSONAL INFORMATION</h3>
     
@@ -413,7 +401,7 @@
     
     	<div id="p_id">
     		<label for="p_id">Person ID</label>
-    		<input class="blue" type="text" name="p_id" value="<%= p_id %>" id="p_id">
+    		<input class="blue" type="text" name="p_id" value="<%= p_id %>" id="p_id_field">
 		</div><!--END PERSON ID-->
         
         <div id="p_mf">
@@ -435,11 +423,22 @@
         	<label for="p_dob">Date Of Birth</label>
             <input class="blue" type="text" name="p_dob" id="p_dob_field" value="<%= p_dob %>">
         </div><!--END PERSON DATE OF BIRTH-->
-    
+    	
+		<div id="p_save">
+			<div class="grad_button">
+	        	<div class="grad_left"></div>
+	            <div class="grad_mid">
+	            	<a class="save_person_btn" href="#">SAVE</a>
+	            </div>
+	            <div class="grad_right"></div>
+	        </div>
+		</div>
+		
     </div><!--END ROW 1-->
 </script>
 
 <script type="text/javascript" src="js/lib/jquery-1.5.2.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery-extensions.js"></script>
 <script type="text/javascript" src="js/lib/underscore.js"></script>
 <script type="text/javascript" src="js/lib/backbone.js"></script>
 <script type="text/javascript" src="js/lib/backbone-localstorage.js"></script>
@@ -457,6 +456,7 @@
 <script type="text/javascript" src="js/views/TableRowView.js"></script>
 <script type="text/javascript" src="js/views/MainMenuView.js"></script>
 <script type="text/javascript" src="js/views/SearchView.js"></script>
+<script type="text/javascript" src="js/views/HistoryView.js"></script>
 <script type="text/javascript" src="js/views/MeasurementView.js"></script>
 <script type="text/javascript" src="js/views/PersonView.js"></script>
 <script type="text/javascript" src="js/views/PersonInfoView.js"></script>

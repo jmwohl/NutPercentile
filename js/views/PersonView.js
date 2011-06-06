@@ -31,6 +31,9 @@ App.Views.PersonView = Backbone.View.extend({
 		});
 		this._measurementView = new App.Views.MeasurementView();
 		this._measurementView.bind('addMeasurement', this.addMeasurement);
+		
+		this._historyView = new App.Views.HistoryView();
+		this._historyView.bind('addMeasurement', this.addMeasurement);
 	},
 	
 	render: function() {
@@ -55,6 +58,10 @@ App.Views.PersonView = Backbone.View.extend({
 				this._measurementView.collection = this.personMeasurements;
 				this._measurementView.model = _.last(this.personMeasurements);
 				this._measurementView.render();
+				this._measurementView.doStats();
+				
+				this._historyView.collection = this.personMeasurements;
+				this._historyView.render();
 			} else {
 				this._measurementView.collection = new Array();
 			}
@@ -71,7 +78,15 @@ App.Views.PersonView = Backbone.View.extend({
 		var s_p_id = parseInt(mainAppView.settings.get('s_p_id'));
 		var new_s_p_id = ++s_p_id;
 		mainAppView.settings.save({s_p_id: new_s_p_id});
-		this.model = mainAppView.collection.create(new App.Models.Person({p_id: new_s_p_id, p_sex: "M", p_fn: "First Name", p_ln: "Last Name", p_dob: ""}));
+		if(this.model) {
+			if(this.model.verify()) {
+				alert('model verified');
+			} else {
+				alert('model NOT verified');
+				return false;
+			}
+		}
+		this.model = mainAppView.collection.create(new App.Models.Person({p_id: new_s_p_id, p_sex: "M", p_fn: "", p_ln: "", p_dob: ""}));
 		this._personInfoView.model = this.model;
 		this._personInfoView.render();
 		// this._measurementView.reset();

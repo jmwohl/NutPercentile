@@ -68,11 +68,13 @@ App.Utilities.WAM = {
 		}
 		if ((months >= 24) && (months <=60)) {
 			// XMLText+="<Wt4Ht>"+this.WTHEIGHT(sex,months,kg,cm)+"</Wt4Ht>";
+			resp.wt4age = this.WTAGE(sex, months, kg, cm);
 			resp.wt4ht = this.WTHEIGHT(sex, months, kg, cm);
 			resp.ht4age = this.HEIGHTAGE(sex, months, kg, cm);
 		}
 		if ((months >= 24) && (months < 241)) {
 			// XMLText+="<BMI4Age>"+this.BMIAGE(sex,months,kg,cm)+"</BMI4Age>";
+			resp.wt4age = this.WTAGE(sex, months, kg, cm);
 			resp.wt4ht = this.WTHEIGHT(sex, months, kg, cm);
 			resp.ht4age = this.HEIGHTAGE(sex, months, kg, cm);
 			resp.bmi4age = this.BMIAGE(sex, months, kg, cm);

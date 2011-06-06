@@ -10,7 +10,8 @@ App.Views.MainAppView = Backbone.View.extend({
     // Delegated events for creating new items, and clearing completed ones.
     events: {
 		"click .help_btn": "toggleHelp",
-		"click .settings_btn": "toggleSettings"
+		"click .settings_btn": "toggleSettings",
+		"keypress input": "captureEnter"
 	},
 
     // At initialization we bind to the relevant events on the `Todos`
@@ -18,7 +19,7 @@ App.Views.MainAppView = Backbone.View.extend({
     // loading any preexisting todos that might be saved in *localStorage*.
     initialize: function() {
 		// bind 'this' to appropriate methods
-		_.bindAll(this, 'render', 'initSettings', 'resetSettings');
+		_.bindAll(this, 'render', 'initSettings', 'resetSettings', 'captureEnter');
 		
 		
 		// Settings
@@ -104,6 +105,13 @@ App.Views.MainAppView = Backbone.View.extend({
 	// Toggle settings panel
 	toggleSettings: function() {
 		this.$('#settings').slideToggle();
+	},
+	
+	captureEnter: function(e) {
+		if (e.keyCode != 13) return;
+		console.log('Go to next field');
+		$(e.currentTarget).focusNextInputField();
+		e.preventDefault();
 	}
 
 });
